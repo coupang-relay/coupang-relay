@@ -52,11 +52,11 @@ export default function Page({ params }: { params: { id: string } }) {
         <Category>{product?.category}</Category>
         <ProductName>{product?.name}</ProductName>
         <OriginalPrice>
-          <span className="text-[#212B36]">{product?.discount_rate.toLocaleString()}%</span>{' '}
-          <span className="line-through">{product?.base_price.toLocaleString()}원</span>
+          <span className="text-[#212B36]">{product?.discount_rate?.toLocaleString()}%</span>{' '}
+          <span className="line-through">{product?.base_price?.toLocaleString()}원</span>
         </OriginalPrice>
         <div className="mt-1 flex items-center gap-2">
-          <FinalPrice>{product?.price.toLocaleString()}원</FinalPrice>
+          <FinalPrice>{product?.price?.toLocaleString()}원</FinalPrice>
           <Image
             alt="로켓와우"
             src="/assets/badges/rocket-wow.png"
