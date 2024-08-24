@@ -1,5 +1,6 @@
 'use client'
 
+import styled from 'styled-components'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { ArrowLeft, ChevronRight } from 'lucide-react'
@@ -8,6 +9,7 @@ import { useRouter } from 'next/navigation'
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
+
   return (
     <div className="relative w-full h-screen">
       <div className="items-center justify-center">
@@ -25,23 +27,30 @@ export default function Page({ params }: { params: { id: string } }) {
           className="rounded-lg object-cover"
           layout="fill"
         />
-        <Card className="absolute bottom-0 left-0 right-0 mx-4 mb-20">
-          <CardContent className="p-4">
+
+        <Card
+          className="absolute bottom-0 left-0 right-0 mx-4 mb-20"
+          style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+        >
+          <CardContent className="p-[10px]">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <Image
                   src={`/img/relay/${params.id}.jpeg`}
                   alt="Product"
-                  className="w-12 h-12 object-cover rounded-sm w-12 h-12"
+                  className="w-[74px] h-[74px] object-cover rounded-sm"
                   width={50}
                   height={50}
                 />
-                <div>
-                  <h3 className="font-semibold">머지 더 퍼스트 브로우 펜슬 2개</h3>
-                  <p className="text-sm text-red-600">12,400원</p>
+                <div className="flex flex-col">
+                  <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
+                  <OriginalPrice>
+                    50% <span className="line-through">24,800원</span>
+                  </OriginalPrice>
+                  <FinalPrice>12,400원</FinalPrice>
                 </div>
               </div>
-              <ChevronRight className="w-6 h-6 text-gray-400" />
+              <ChevronRight size={24} className="text-gray-400" />
             </div>
           </CardContent>
         </Card>
@@ -49,3 +58,23 @@ export default function Page({ params }: { params: { id: string } }) {
     </div>
   )
 }
+
+const ProductName = styled.span`
+  color: #000;
+  font-family: 'Pretendard';
+  font-size: 14px;
+  font-weight: 500;
+`
+
+const OriginalPrice = styled.span`
+  color: #a1a1a1;
+  font-family: 'Pretendard';
+  font-size: 12px;
+  font-weight: 400;
+`
+const FinalPrice = styled.span`
+  color: #c51905;
+  font-family: 'Pretendard';
+  font-size: 16px;
+  font-weight: 700;
+`
