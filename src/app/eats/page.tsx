@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col bg-background text-foreground">
-      <Header />;{' '}
+      <Header />{' '}
       <main className="flex-1 overflow-y-auto">
         <section className="mb-4">
           <RelayTitle />

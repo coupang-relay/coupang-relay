@@ -17,7 +17,7 @@ export default function Page() {
       <Header />
 
       <main className="flex-1 overflow-y-auto">
-        <section className="mb-4">
+        <section className="flex flex-col w-full">
           <RelayTitle />
 
           <div className="relative overflow-hidden">
@@ -31,13 +31,17 @@ export default function Page() {
 
         {/* Carousel ad banner */}
         <section className="relative mb-4 px-4 flex justify-center">
-          <div className="overflow-hidden rounded-lg w-[358px]">
+          <div className="overflow-hidden rounded-lg w-[400px]">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-              {[...Array(totalSlides)].map((_, i) => (
-                <div key={i} className="flex-shrink-0 w-full snap-center max-w-[358px]">
-                  <Image alt="" src="/assets/banner-1-1.png" width={358} height={160} />
-                </div>
-              ))}
+              {/* 1 */}
+              <div className="flex-shrink-0 w-full snap-center max-w-[400px]">
+                <Image alt="" src="/assets/banner-1-1.png" width={400} height={179} />
+              </div>
+
+              {/* 2 */}
+              <div className="flex-shrink-0 w-full snap-center max-w-[400px]">
+                <Image alt="" src="/assets/banner-1-2.png" width={400} height={179} />
+              </div>
             </div>
           </div>
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
