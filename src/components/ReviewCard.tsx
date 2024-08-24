@@ -16,7 +16,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
     <Link
       href={`/relay/${id + 1}`}
       key={id}
-      className="w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
+      className="min-w-[180px] max-w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
     >
       <Container>
         <motion.div
@@ -26,9 +26,9 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
           exit={{ opacity: 0 }}
         >
           <Image
-            onLoad={() => setImageLoading(false)}
+            alt=""
             src={`/img/relay/${id + 1}.jpeg`}
-            alt="cat"
+            onLoad={() => setImageLoading(false)}
             className="w-full h-full object-cover absolute top-0 left-0 right-0 bottom-0"
             width={180}
             height={320}
