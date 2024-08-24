@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useRef, useEffect, TouchEvent } from 'react'
 import styled from 'styled-components'
 import { ChevronRight } from 'lucide-react'
