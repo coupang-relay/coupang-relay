@@ -136,9 +136,10 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                       height={50}
                     />
                     <div className="flex flex-col flex-1">
-                      <ProductName>{product.name}</ProductName>
+                      <ProductName className="line-clamp-2">{product.name}</ProductName>
                       <OriginalPrice>
-                        {product.discount_rate.toLocaleString()}{' '}
+                        {product.discount_rate.toLocaleString()}
+                        {'% '}
                         <span className="line-through">{product.base_price.toLocaleString()}원</span>
                       </OriginalPrice>
                       <div className="mt-1 flex items-center gap-2">

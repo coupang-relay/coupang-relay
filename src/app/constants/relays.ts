@@ -27,6 +27,44 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    id: '2',
+    img: '/img/relay/2.jpg',
+    product: {
+      id: 20164535083,
+      name: '햇반 컵반 스팸 마요 덮밥 5개, 219g, 5개',
+      coupang_product_id: 20164535083,
+      category: '덮밥/비빔밥',
+      price: 10089,
+      base_price: 13620,
+      discount_rate: 5,
+      thumbnail_src:
+        'https://thumbnail10.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/49e3/b6db534f4dc2d370d379788ac955cceb4a1c86606d0477124f1691d3e1ef.jpg',
+      created_at: '',
+      stock_count: 0,
+      sold_count: 0,
+      description: '',
+    },
+  },
+  {
+    id: '3',
+    img: '/img/relay/3.jpg',
+    product: {
+      id: 5033261049,
+      name: 'Apple 2020 맥북 에어 13스페이스 그레이 · M1 · 256GB · 8GB · A2337',
+      coupang_product_id: 5033261049,
+      category: 'Apple',
+      price: 1056400,
+      base_price: 1112000,
+      discount_rate: 5,
+      thumbnail_src:
+        'https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/397296000467275-5a83a375-06a6-4c00-9e16-ffd2687b23c8.jpg',
+      created_at: '',
+      stock_count: 0,
+      sold_count: 0,
+      description: '',
+    },
+  },
+  {
     id: '4',
     img: '/img/relay/4.jpg',
     product: {
