@@ -18,7 +18,7 @@ interface Product {
 
 interface PaginationOptions {
   page: number
-  pageSize: number
+  size: number
 }
 
 interface PaginatedResult {
@@ -53,12 +53,12 @@ class ProductDatabase {
   }
 
   private paginate(items: Product[], options: PaginationOptions): PaginatedResult {
-    const { page, pageSize } = options
+    const { page, size } = options
     const totalItems = items.length
-    const totalPages = Math.ceil(totalItems / pageSize)
+    const totalPages = Math.ceil(totalItems / size)
     const currentPage = Math.max(1, Math.min(page, totalPages))
-    const startIndex = (currentPage - 1) * pageSize
-    const endIndex = Math.min(startIndex + pageSize, totalItems)
+    const startIndex = (currentPage - 1) * size
+    const endIndex = Math.min(startIndex + size, totalItems)
 
     return {
       items: items.slice(startIndex, endIndex),
