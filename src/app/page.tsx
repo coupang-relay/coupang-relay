@@ -30,15 +30,12 @@ export default function Page() {
         </section>
 
         {/* Carousel ad banner */}
-        <section className="relative mb-4 px-4">
-          <div className="overflow-hidden rounded-lg">
+        <section className="relative mb-4 px-4 flex justify-center">
+          <div className="overflow-hidden rounded-lg w-[358px]">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
               {[...Array(totalSlides)].map((_, i) => (
-                <div key={i} className="flex-shrink-0 w-full snap-center">
-                  <div className="bg-green-100 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-2">잔뜩 담아도 안 무거워!</h3>
-                    <p className="text-sm">국민템 최대 50% 할인</p>
-                  </div>
+                <div key={i} className="flex-shrink-0 w-full snap-center max-w-[358px]">
+                  <Image alt="" src="/assets/banner-1-1.png" width={358} height={160} />
                 </div>
               ))}
             </div>
@@ -52,7 +49,7 @@ export default function Page() {
 
         {/* Service icons */}
         <section className="grid grid-cols-4 gap-2 px-4 mb-4 max-w-[400px] w-full mx-auto">
-          {['로켓배송', '로켓프레시', '로켓직구', '쿠팡라이브'].map((serviceName, i) => (
+          {['로켓배송', '로켓프레시', '로켓직구', '쿠팡이츠'].map((serviceName, i) => (
             <div
               key={i}
               className="p-[10px] flex flex-col aspect-square items-center justify-center bg-[#F6F6F6] rounded-[8px] transition-all hover:translate-y-1 cursor-pointer gap-[5px]"

@@ -23,7 +23,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen san-francisco">
+      <body className="min-h-screen san-francisco max-w-[400px] w-full mx-auto">
         <StyledComponentsRegistry>
           {children}
           <Tabbar />
