@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "server": "bun server/index.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,8 +13,6 @@
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
-    "@trpc/client": "^11.0.0-rc.485",
-    "@trpc/server": "^11.0.0-rc.485",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.435.0",

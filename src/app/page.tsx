@@ -1,16 +1,9 @@
 import { ReviewCard } from '@/components/ReviewCard'
 import { Home, Menu, Rocket, Search, ShoppingCart, User } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
-import { trpc } from '../index'
 
 export default async function Page() {
-  const totalSlides = 7
-
-  const user = await trpc.getProducts.query({
-    limit: 10,
-    offset: 0,
-  })
+  const totalSlides = 2
 
   return (
     <div className="flex flex-col bg-background text-foreground">
@@ -72,8 +65,6 @@ export default async function Page() {
           ))}
         </section>
       </main>
-
-      {}
 
       {/* Navigation bar */}
       <nav className="flex justify-around items-center p-4 border-t">
