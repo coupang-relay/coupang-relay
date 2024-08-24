@@ -103,4 +103,24 @@ export const RELAYS: RelayItem[] = [
         '유무선 여부: 무선, 내장마이크 탑재여부: 내장마이크, 연결방식: 멀티단자, 색상계열: 화이트계열, 헤드폰/헤드셋 유닛형태: 밀폐형',
     },
   },
+  {
+    id: '8',
+    img: '/img/relay/8.jpg',
+    product: {
+      id: 10409,
+      name: '소니 블루투스 헤드셋 WH-CH520',
+      coupang_product_id: 7154098029,
+      category: '블루투스 헤드폰',
+      price: 73000,
+      base_price: 84000,
+      discount_rate: 17,
+      thumbnail_src:
+        'https://image6.coupangcdn.com/image/retail/images/4275480964807189-d87f7e0a-5dbf-4df1-833a-9f6de2174704.jpg',
+      created_at: '',
+      stock_count: 0,
+      sold_count: 0,
+      description:
+        '유무선 여부: 무선, 내장마이크 탑재여부: 내장마이크, 연결방식: 멀티단자, 색상계열: 화이트계열, 헤드폰/헤드셋 유닛형태: 밀폐형',
+    },
+  },
 ]

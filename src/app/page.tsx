@@ -22,7 +22,7 @@ export default function Page() {
 
           <div className="relative overflow-hidden">
             <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
-              {[1, 2, 3, 4, 5, 6, 7].map((id) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
                 <RelayCard key={id} id={id} />
               ))}
             </ul>

@@ -10,8 +10,8 @@ import { SeededRandom } from '@/lib/seeded-random'
 const getDeliveryStats = (seed: string) => {
   const rng = new SeededRandom(seed)
   return {
-    views: rng.nextInt(100, 10000),
-    realtime: seed === '1' ? 734 : seed == '2' ? 29 : rng.nextInt(2, 1000),
+    views: seed == '8' ? 123 : rng.nextInt(100, 10000),
+    realtime: seed === '1' ? 734 : seed == '2' ? 29 : seed == '8' ? 5 : rng.nextInt(2, 1000),
   }
 }
 
