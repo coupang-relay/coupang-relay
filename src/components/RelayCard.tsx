@@ -16,7 +16,7 @@ const getDeliveryStats = (seed: string) => {
 }
 
 type RelayCardProps = {
-  id: number
+  id: number | string
 }
 export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
