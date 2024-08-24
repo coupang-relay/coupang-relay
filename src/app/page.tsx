@@ -1,3 +1,4 @@
+import { ReviewCard } from '@/components/ReviewCard'
 import { Home, Menu, Rocket, Search, ShoppingCart, User } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -27,25 +28,11 @@ export default async function Page() {
         <section className="mb-4">
           <h2 className="text-xl font-bold px-4 mb-2">100% 만족하는 화장품</h2>
           <div className="relative overflow-hidden">
-            <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+            <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
               {[...Array(3)].map((_, i) => (
-                <Link href={`/relay/${i + 1}`} key={i} className="flex-shrink-0 w-[180px] mx-2 snap-center">
-                  <div className="p-0 h-[320px] relative">
-                    <Image
-                      src={`/img/relay/${i + 1}.jpeg`}
-                      alt="cat"
-                      className="w-full h-full object-cover"
-                      width={180}
-                      height={320}
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-2">
-                      <p className="text-white text-sm">Product Name</p>
-                      <p className="text-white text-xs">₩2,389</p>
-                    </div>
-                  </div>
-                </Link>
+                <ReviewCard key={i} id={i} />
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 

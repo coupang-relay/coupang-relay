@@ -10,11 +10,11 @@ export default function Home() {
     <main className="flex flex-col">
       <section>
         <Title>쿠팡 릴레이</Title>
-        <div className="mx-4 my-4 flex items-center gap-2">
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-        </div>
+        <ul className="mx-4 my-4 flex items-center">
+          <ReviewCard id={0} />
+          <ReviewCard id={1} />
+          <ReviewCard id={2} />
+        </ul>
       </section>
 
       <section>
