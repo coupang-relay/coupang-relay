@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState, useRef, useEffect, TouchEvent } from 'react'
@@ -129,7 +130,13 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                   <motion.div
                     className="mt-2 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
                     style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
-                    onClick={() => router.push(`/detail/${product.id}`)}
+                    onClick={() => {
+                      const url =
+                        params.type === 'eats' //
+                          ? 'https://www.coupangeats.com'
+                          : `/detail/${product.id}`
+                      router.push(url)
+                    }}
                     transition={{ duration: 0.2 }}
                     whileHover={{ y: 5 }}
                   >
