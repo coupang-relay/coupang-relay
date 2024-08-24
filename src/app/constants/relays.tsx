@@ -17,6 +17,7 @@ export type RelayItem =
         desc: string
         price: number
         thumbnail_src: string
+        geo: React.ReactNode
       }
     }
 
@@ -192,6 +193,7 @@ export const RELAYS: RelayItem[] = [
       desc: '23분 만에 로켓 배달!',
       price: 28000,
       thumbnail_src: 'https://www.chickenrank.com/storage/chickens/WwvXsLZTYl7F0zHPxO3bs4G4xlwpV5aaLAh5hUzi.png',
+      geo: <img src="/img/relay/geo-eats-1.svg" alt="" width={86} height={24} />,
     },
   },
   {
@@ -204,6 +206,7 @@ export const RELAYS: RelayItem[] = [
       desc: '48분 만에 로켓 배달!',
       price: 24000,
       thumbnail_src: 'https://sitem.ssgcdn.com/86/69/80/item/1000556806986_i1_750.jpg',
+      geo: <img src="/img/relay/geo-eats-2.svg" alt="" width={86} height={24} />,
     },
   },
   {
@@ -216,6 +219,7 @@ export const RELAYS: RelayItem[] = [
       desc: '31분 만에 로켓 배달!',
       price: 14000,
       thumbnail_src: 'https://www.yupdduk.com/bod/config/menu/%EC%97%BD%EA%B8%B0%EB%A9%94%EB%89%B4_6_1_1_1_1_1.png',
+      geo: <img src="/img/relay/geo-eats-3.svg" alt="" width={122} height={24} />,
     },
   },
   {
@@ -228,6 +232,7 @@ export const RELAYS: RelayItem[] = [
       desc: '12분 만에 로켓 배달!',
       price: 6100,
       thumbnail_src: 'https://ynpoint.com/web/product/big/202302/18f6e97ea5a4d2b061ac833f2174be25.jpg',
+      geo: <img src="/img/relay/geo-eats-4.svg" alt="" width={66} height={24} />,
     },
   },
 ]

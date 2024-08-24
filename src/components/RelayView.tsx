@@ -122,7 +122,10 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                   // onClick={() => router.push(`/detail/${product.id}`)}
                   // whileHover={{ scale: 1.01 }}
                 >
-                  <RelayTimeBadge />
+                  <div className="flex items-center gap-1">
+                    <RelayTimeBadge />
+                    {params.type === 'eats' && params.product.geo}
+                  </div>
                   <motion.div
                     className="mt-2 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
                     style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
