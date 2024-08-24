@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import { RELAYS } from '@/app/constants/relays'
 import RelayView from '@/components/RelayView'
 import { Button } from '@/components/ui/button'
@@ -8,6 +9,15 @@ import { useRouter } from 'next/navigation'
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
+
+  const relays = useMemo(() => {
+    const relay = RELAYS.find((v) => v.id === params.id)
+    if (!relay) {
+      return []
+    }
+    return [relay, ...RELAYS.filter((v) => v.id !== params.id)]
+  }, [params.id])
+
   return (
     <>
       <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent h-36 z-10">
@@ -18,7 +28,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <span className="text-white">쿠팡 릴레이</span>
         </h1>
       </div>
-      <RelayView relays={RELAYS} />
+      <RelayView relays={relays} />
     </>
   )
 }

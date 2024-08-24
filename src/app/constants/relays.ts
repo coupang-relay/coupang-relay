@@ -1,12 +1,14 @@
 import { type Product } from '../api/db'
 
 export type RelayItem = {
+  id: string
   img: string
   product: Product
 }
 
 export const RELAYS: RelayItem[] = [
   {
+    id: '1',
     img: '/img/relay/1.jpg',
     product: {
       id: 20534512837,
@@ -25,6 +27,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    id: '4',
     img: '/img/relay/4.jpg',
     product: {
       id: 10406,
@@ -43,6 +46,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    id: '5',
     img: '/img/relay/5.jpg',
     product: {
       id: 10407,
@@ -61,6 +65,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    id: '6',
     img: '/img/relay/6.jpg',
     product: {
       id: 10408,
@@ -79,6 +84,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    id: '7',
     img: '/img/relay/7.jpg',
     product: {
       id: 10409,
