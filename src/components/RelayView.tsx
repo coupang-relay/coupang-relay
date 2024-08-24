@@ -108,7 +108,7 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                 />
               </motion.div>
               <motion.div
-                className="absolute bottom-0 left-0 right-0 ml-4 mb-20 "
+                className="absolute bottom-0 left-0 right-0 ml-4 pb-20"
                 // style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
                 // onClick={() => router.push(`/detail/${product.id}`)}
                 // whileHover={{ scale: 1.01 }}
