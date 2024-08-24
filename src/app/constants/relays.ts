@@ -45,7 +45,7 @@ export const RELAYS: RelayItem[] = [
   {
     img: '/img/relay/5.jpeg',
     product: {
-      id: 20534512837,
+      id: 10407,
       name: '드레텍 스톱워치',
       coupang_product_id: 6138741370,
       category: '데스크정리소품',

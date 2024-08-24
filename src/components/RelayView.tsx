@@ -88,70 +88,78 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {relays.map(({ img: relayImageSrc, product }, index) => (
-        <ScrollItem key={index}>
-          <div className="relative w-full h-screen bg-black">
-            <div className="items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isImageLoading ? 0 : 1 }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0 }}
-              >
-                <StyledImage
-                  src={relayImageSrc}
-                  onLoad={() => setImageLoading(false)}
-                  alt={`product-${index + 1}`}
-                  className="rounded-lg"
-                  layout="fill"
-                  quality={100}
-                />
-              </motion.div>
-              <motion.div
-                className="absolute bottom-0 left-0 right-0 ml-4 pb-20"
-                // style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
-                // onClick={() => router.push(`/detail/${product.id}`)}
-                // whileHover={{ scale: 1.01 }}
-              >
-                <RelayTimeBadge />
+      {relays.map(({ img: relayImageSrc, product }, index) => {
+        const productThumbnailSrc = !product
+          ? null
+          : product.thumbnail_src.startsWith('https://')
+            ? product.thumbnail_src
+            : `https://${product.thumbnail_src}`
+
+        return (
+          <ScrollItem key={index}>
+            <div className="relative w-full h-screen bg-black">
+              <div className="items-center justify-center">
                 <motion.div
-                  className="mt-2 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
-                  style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
-                  onClick={() => router.push(`/detail/${product.id}`)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isImageLoading ? 0 : 1 }}
                   transition={{ duration: 0.2 }}
-                  whileHover={{ y: 5 }}
+                  exit={{ opacity: 0 }}
                 >
-                  <Image
-                    src={product.thumbnail_src}
-                    alt="Product"
-                    className="w-[74px] h-[74px] object-cover rounded-sm"
-                    width={50}
-                    height={50}
+                  <StyledImage
+                    src={relayImageSrc}
+                    onLoad={() => setImageLoading(false)}
+                    alt={`product-${index + 1}`}
+                    className="rounded-lg"
+                    layout="fill"
+                    quality={100}
                   />
-                  <div className="flex flex-col flex-1">
-                    <ProductName>{product.name}</ProductName>
-                    <OriginalPrice>
-                      {product.discount_rate.toLocaleString()}{' '}
-                      <span className="line-through">{product.base_price.toLocaleString()}원</span>
-                    </OriginalPrice>
-                    <div className="mt-1 flex items-center gap-2">
-                      <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
-                      <Image
-                        alt="로켓와우"
-                        src="/assets/badges/rocket-wow.png"
-                        className="h-[16px] w-[64px]"
-                        width={126 * 2}
-                        height={32 * 2}
-                      />
-                    </div>
-                  </div>
-                  <ChevronRight size={24} className="text-gray-400" />
                 </motion.div>
-              </motion.div>
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 ml-4 pb-20"
+                  // style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+                  // onClick={() => router.push(`/detail/${product.id}`)}
+                  // whileHover={{ scale: 1.01 }}
+                >
+                  <RelayTimeBadge />
+                  <motion.div
+                    className="mt-2 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
+                    style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+                    onClick={() => router.push(`/detail/${product.id}`)}
+                    transition={{ duration: 0.2 }}
+                    whileHover={{ y: 5 }}
+                  >
+                    <img
+                      src={productThumbnailSrc || ''}
+                      alt="Product"
+                      className="w-[74px] h-[74px] object-cover rounded-sm"
+                      width={50}
+                      height={50}
+                    />
+                    <div className="flex flex-col flex-1">
+                      <ProductName>{product.name}</ProductName>
+                      <OriginalPrice>
+                        {product.discount_rate.toLocaleString()}{' '}
+                        <span className="line-through">{product.base_price.toLocaleString()}원</span>
+                      </OriginalPrice>
+                      <div className="mt-1 flex items-center gap-2">
+                        <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
+                        <Image
+                          alt="로켓와우"
+                          src="/assets/badges/rocket-wow.png"
+                          className="h-[16px] w-[64px]"
+                          width={126 * 2}
+                          height={32 * 2}
+                        />
+                      </div>
+                    </div>
+                    <ChevronRight size={24} className="text-gray-400" />
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </ScrollItem>
-      ))}
+          </ScrollItem>
+        )
+      })}
     </ScrollContainer>
   )
 }
