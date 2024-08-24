@@ -31,7 +31,7 @@ export const ProductListItem: React.FC<Product> = (product) => {
     ? product.thumbnail_src
     : `https://${product.thumbnail_src}`
   return (
-    <Link href={`/detail/${product.id}`} className="w-full">
+    <Link href={`/detail/${product.id}`} className="w-full hover:bg-slate-50 transition-colors">
       <Container>
         <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
 
