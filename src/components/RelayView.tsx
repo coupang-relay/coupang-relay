@@ -1,6 +1,5 @@
 'use client'
-
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, TouchEvent } from 'react'
 import styled from 'styled-components'
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -11,6 +10,7 @@ const ScrollContainer = styled.div`
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 `
 
 const ScrollItem = styled.div`
@@ -22,6 +22,9 @@ const ScrollItem = styled.div`
 export const RelayView: React.FC<{ id: string }> = ({ id }) => {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,10 +32,7 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
         const scrollPosition = scrollContainerRef.current.scrollTop
         const viewportHeight = window.innerHeight
         const snapIndex = Math.round(scrollPosition / viewportHeight)
-        scrollContainerRef.current.scrollTo({
-          top: snapIndex * viewportHeight,
-          behavior: 'smooth',
-        })
+        setCurrentIndex(snapIndex)
       }
     }
 
@@ -48,8 +48,40 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
     }
   }, [])
 
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    setTouchStart(e.targetTouches[0].clientY)
+  }
+
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(e.targetTouches[0].clientY)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      // Swipe up
+      setCurrentIndex((prev) => Math.min(prev + 1, 9))
+    }
+
+    if (touchStart - touchEnd < -50) {
+      // Swipe down
+      setCurrentIndex((prev) => Math.max(prev - 1, 0))
+    }
+
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: currentIndex * window.innerHeight,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
-    <ScrollContainer ref={scrollContainerRef}>
+    <ScrollContainer
+      ref={scrollContainerRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {Array.from({ length: 10 }).map((_, index) => (
         <ScrollItem key={index}>
           <div className="relative w-full h-screen">
