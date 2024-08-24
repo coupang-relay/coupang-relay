@@ -7,7 +7,7 @@ export type RelayItem = {
 
 export const RELAYS: RelayItem[] = [
   {
-    img: '/img/relay/1.jpeg',
+    img: '/img/relay/1.jpg',
     product: {
       id: 20534512837,
       name: '3CE 쓰리씨이 블러 워터 틴트',
@@ -25,7 +25,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
-    img: '/img/relay/4.jpeg',
+    img: '/img/relay/4.jpg',
     product: {
       id: 10406,
       name: '홈리얼 눈뭉치 눈오리집게 대형 2개입',
@@ -43,7 +43,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
-    img: '/img/relay/5.jpeg',
+    img: '/img/relay/5.jpg',
     product: {
       id: 10407,
       name: '드레텍 스톱워치',
@@ -61,7 +61,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
-    img: '/img/relay/6.jpeg',
+    img: '/img/relay/6.jpg',
     product: {
       id: 10408,
       name: '크록스 바야 라인드 클로그 화이트 205969-11H',
@@ -79,7 +79,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
-    img: '/img/relay/7.jpeg',
+    img: '/img/relay/7.jpg',
     product: {
       id: 10409,
       name: '소니 블루투스 헤드셋 WH-CH520',
