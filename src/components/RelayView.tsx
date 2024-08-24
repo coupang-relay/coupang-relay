@@ -7,6 +7,8 @@ import { motion } from 'framer-motion'
 import { RelayItem } from '@/app/constants/relays'
 import { useRouter } from 'next/navigation'
 
+import { RelayTimeBadge } from './RelayTimeBadge'
+
 const ScrollContainer = styled.div`
   height: 100vh;
   overflow-y: scroll;
@@ -106,36 +108,45 @@ export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) 
                 />
               </motion.div>
               <motion.div
-                className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
-                style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
-                onClick={() => router.push(`/detail/${product.id}`)}
-                whileHover={{ scale: 1.01 }}
+                className="absolute bottom-0 left-0 right-0 ml-4 mb-20 "
+                // style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+                // onClick={() => router.push(`/detail/${product.id}`)}
+                // whileHover={{ scale: 1.01 }}
               >
-                <Image
-                  src={relayImageSrc}
-                  alt="Product"
-                  className="w-[74px] h-[74px] object-cover rounded-sm"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col flex-1">
-                  <ProductName>{product.name}</ProductName>
-                  <OriginalPrice>
-                    {product.discount_rate.toLocaleString()}{' '}
-                    <span className="line-through">{product.base_price.toLocaleString()}원</span>
-                  </OriginalPrice>
-                  <div className="mt-1 flex items-center gap-2">
-                    <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
-                    <Image
-                      alt="로켓와우"
-                      src="/assets/badges/rocket-wow.png"
-                      className="h-[16px] w-[64px]"
-                      width={126 * 2}
-                      height={32 * 2}
-                    />
+                <RelayTimeBadge />
+                <motion.div
+                  className="mt-2 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
+                  style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+                  onClick={() => router.push(`/detail/${product.id}`)}
+                  transition={{ duration: 0.2 }}
+                  whileHover={{ y: 5 }}
+                >
+                  <Image
+                    src={relayImageSrc}
+                    alt="Product"
+                    className="w-[74px] h-[74px] object-cover rounded-sm"
+                    width={50}
+                    height={50}
+                  />
+                  <div className="flex flex-col flex-1">
+                    <ProductName>{product.name}</ProductName>
+                    <OriginalPrice>
+                      {product.discount_rate.toLocaleString()}{' '}
+                      <span className="line-through">{product.base_price.toLocaleString()}원</span>
+                    </OriginalPrice>
+                    <div className="mt-1 flex items-center gap-2">
+                      <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
+                      <Image
+                        alt="로켓와우"
+                        src="/assets/badges/rocket-wow.png"
+                        className="h-[16px] w-[64px]"
+                        width={126 * 2}
+                        height={32 * 2}
+                      />
+                    </div>
                   </div>
-                </div>
-                <ChevronRight size={24} className="text-gray-400" />
+                  <ChevronRight size={24} className="text-gray-400" />
+                </motion.div>
               </motion.div>
             </div>
           </div>
