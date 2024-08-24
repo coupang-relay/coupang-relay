@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { type Product } from '../../api/db'
+import { RelayCard } from '@/components/RelayCard'
+import { RelayTitle } from '@/components/RelayTitle'
 
 export default function Page({ params }: { params: { id: string } }) {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
@@ -48,7 +50,7 @@ export default function Page({ params }: { params: { id: string } }) {
           style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 80.13%, rgba(0, 0, 0, 0.20) 117.82%)' }}
         />
       </motion.div>{' '}
-      <div className="flex flex-col flex-1 px-4 pt-3 pb-[64px]">
+      <div className="flex flex-col flex-1 px-4 pt-3 pb-[24px]">
         <Category>{product?.category}</Category>
         <ProductName>{product?.name}</ProductName>
         <OriginalPrice>
@@ -64,6 +66,23 @@ export default function Page({ params }: { params: { id: string } }) {
             width={126 * 2}
             height={32 * 2}
           />
+        </div>
+      </div>
+      <div
+        className="flex flex-col"
+        style={{
+          borderTop: `1px solid #dfe3e6`,
+          paddingTop: 20,
+          marginTop: 20,
+        }}
+      >
+        <RelayTitle />
+        <div className="relative overflow-hidden">
+          <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
+              <RelayCard key={id} id={id} />
+            ))}
+          </ul>
         </div>
       </div>
     </div>
