@@ -10,7 +10,7 @@ type ReviewCardProps = {
 }
 export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
   return (
-    <Link href={`/relay/${id + 1}`} key={id} className="flex-shrink-0 w-[180px] mx-2 snap-center">
+    <Link href={`/relay/${id + 1}`} key={id} className="flex-shrink-0 w-[180px] mx-1 snap-center">
       <Container>
         <Image
           src={`/img/relay/${id + 1}.jpeg`}
