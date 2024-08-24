@@ -1,11 +1,25 @@
+'use client'
+
 import { Logo } from '@/components/logo'
 import { ReviewCard } from '@/components/ReviewCard'
 import { Button } from '@/components/ui/button'
 import { Rocket, Search, ShoppingCart, SquarePlus } from 'lucide-react'
 import Link from 'next/link'
+import { Input } from '@/components/ui/input'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
-export default async function Page() {
+export default function Page() {
   const totalSlides = 2
+  const router = useRouter()
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`)
+    }
+  }
 
   return (
     <div className="flex flex-col bg-background text-foreground">
@@ -23,6 +37,19 @@ export default async function Page() {
             </Button>
           </Link>
         </div>
+      </div>
+      <div className="flex justify-center items-center px-3 pb-3">
+        <form onSubmit={handleSearch} className="text-muted-foreground flex items-center border rounded-md px-2 w-full">
+          <div className="flex items-center">
+            <Search className="w-4 h-4" />
+          </div>
+          <Input
+            placeholder="검색어를 입력해주세요"
+            className="w-full"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </form>
       </div>
       <main className="flex-1 overflow-y-auto">
         <section className="mb-4">
@@ -55,7 +82,6 @@ export default async function Page() {
             ))}
           </div>
         </section>
-
         {/* Service icons */}
         <section className="grid grid-cols-4 gap-4 px-4 mb-4">
           {['로켓배송', '로켓프레시', '로켓직구', '쿠팡라이브'].map((service, i) => (
