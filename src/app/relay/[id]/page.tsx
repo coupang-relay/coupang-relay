@@ -11,11 +11,11 @@ export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
 
   const relays = useMemo(() => {
-    const relay = RELAYS.find((v) => v.id === params.id)
-    if (!relay) {
+    const relayIndex = RELAYS.findIndex((v) => v.id === params.id)
+    if (relayIndex === -1) {
       return []
     }
-    return [relay, ...RELAYS.filter((v) => v.id !== params.id)]
+    return [...RELAYS.slice(relayIndex), ...RELAYS.slice(0, relayIndex)]
   }, [params.id])
 
   return (
