@@ -122,7 +122,7 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                   whileHover={{ y: 5 }}
                 >
                   <Image
-                    src={relayImageSrc}
+                    src={product.thumbnail_src}
                     alt="Product"
                     className="w-[74px] h-[74px] object-cover rounded-sm"
                     width={50}
