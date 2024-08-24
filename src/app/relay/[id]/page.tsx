@@ -1,6 +1,6 @@
 'use client'
 
-import { RELAY_1 } from '@/app/constants/relays'
+import { RELAYS } from '@/app/constants/relays'
 import RelayView from '@/components/RelayView'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <span className="text-white">쿠팡 릴레이</span>
         </h1>
       </div>
-      <RelayView {...RELAY_1} />
+      <RelayView {...RELAYS[0]} />
     </>
   )
 }
