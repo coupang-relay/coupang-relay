@@ -4,6 +4,7 @@ import './globals.css'
 import clsx from 'clsx'
 import Head from 'next/head'
 import StyledComponentsRegistry from '@/lib/registry'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={clsx(inter.className)}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
+      <Toaster />
     </html>
   )
 }
