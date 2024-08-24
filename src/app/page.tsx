@@ -1,33 +1,40 @@
+import { Logo } from '@/components/logo'
 import { ReviewCard } from '@/components/ReviewCard'
-import { Rocket } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Rocket, Search, ShoppingCart, SquarePlus } from 'lucide-react'
+import Link from 'next/link'
 
 export default async function Page() {
   const totalSlides = 2
 
   return (
     <div className="flex flex-col bg-background text-foreground">
-      {/* Header */}
-      <header className="flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">
-          coupang
-        </h1>
-        <div className="w-8 h-8 bg-purple-600 rounded-full" />
-      </header>
-
-      {/* Main content */}
+      <div className="grid grid-cols-2 p-2">
+        <Logo className="h-10 p-2 pt-4 mr-auto" />
+        <div className="flex justify-end items-center">
+          <Link href="/new-relay">
+            <Button className="text-muted-foreground" variant="ghost" size="icon">
+              <SquarePlus className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href="/cart">
+            <Button className="text-muted-foreground" variant="ghost" size="icon">
+              <ShoppingCart className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
       <main className="flex-1 overflow-y-auto">
-        {/* Reels section */}
         <section className="mb-4">
           <h2 className="text-xl font-bold px-4 mb-2">100% 만족하는 화장품</h2>
-          <div className="relative overflow-hidden ml-3">
-            <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
-              {[...Array(8)].map((_, i) => (
-                <ReviewCard key={i} id={i} />
+          <div className="relative overflow-hidden">
+            <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-2">
+              {[1, 2, 3].map((id) => (
+                <ReviewCard key={id} id={id} />
               ))}
             </ul>
           </div>
         </section>
-
         {/* Carousel ad banner */}
         <section className="relative mb-4 px-4">
           <div className="overflow-hidden rounded-lg">
