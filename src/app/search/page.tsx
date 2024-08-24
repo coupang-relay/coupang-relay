@@ -8,15 +8,14 @@ import { ProductListItem } from '@/components/ProductListItem'
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <section>
-        <Title>쿠팡 릴레이</Title>
-        <ul className="mx-4 my-4 flex items-center">
-          <ReviewCard id={0} />
-          <ReviewCard id={1} />
-          <ReviewCard id={2} />
+      <Title>쿠팡 릴레이</Title>
+      <div className="relative overflow-hidden">
+        <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-2">
+          {[1, 2, 3].map((id) => (
+            <ReviewCard key={id} id={id} />
+          ))}
         </ul>
-      </section>
-
+      </div>
       <section>
         <ul className="flex flex-col">
           <ProductListItem />
@@ -29,8 +28,7 @@ export default function Home() {
 }
 
 const Title = styled.h2`
-  padding: 16px 16px 0;
-
+  padding: 16px;
   color: #000;
   font-family: 'Pretendard';
   font-size: 18px;
