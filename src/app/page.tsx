@@ -1,6 +1,5 @@
 import { ReviewCard } from '@/components/ReviewCard'
-import { Home, Menu, Rocket, Search, ShoppingCart, User } from 'lucide-react'
-import Link from 'next/link'
+import { Rocket } from 'lucide-react'
 
 export default async function Page() {
   const totalSlides = 2
@@ -65,25 +64,6 @@ export default async function Page() {
           ))}
         </section>
       </main>
-
-      {/* Navigation bar */}
-      <nav className="flex justify-around items-center p-4 border-t">
-        <Link href="/menu">
-          <Menu className="h-6 w-6" />
-        </Link>
-        <Link href="/search">
-          <Search className="h-6 w-6" />
-        </Link>
-        <Link href="/">
-          <Home className="h-6 w-6" />
-        </Link>
-        <Link href="/cart">
-          <ShoppingCart className="h-6 w-6" />
-        </Link>
-        <Link href="/profile">
-          <User className="h-6 w-6" />
-        </Link>
-      </nav>
     </div>
   )
 }
