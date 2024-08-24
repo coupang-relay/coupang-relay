@@ -46,6 +46,8 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
           />
         </motion.div>
 
+        <div className="absolute left-0 bottom-0 right-0 bg-gradient-to-b from-black/0 to-black/60 h-[90px]" />
+
         <div className="flex flex-col absolute left-4 bottom-4">
           <RealtimeMetrics className="flex items-center">
             <span className="mr-1">{stats.realtime > 400 ? <FireIcon /> : '👀'}</span>
