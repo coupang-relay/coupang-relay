@@ -7,7 +7,7 @@ export const ProductListItem: React.FC = () => {
       <ProductImage alt="" width={512} height={512} src="/assets/product-1.png" />
 
       <Info>
-        <Title>머지 더 퍼스트 브로우 펜슬 2개</Title>
+        <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
 
         <OriginalPrice>
           50% <span className="line-through">24,800원</span>
@@ -52,7 +52,7 @@ const Info = styled.div`
   flex-direction: column;
   flex: 1;
 `
-const Title = styled.h3`
+const ProductName = styled.h3`
   color: #000;
   font-family: 'Pretendard';
   font-size: 14px;
