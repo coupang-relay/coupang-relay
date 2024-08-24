@@ -24,7 +24,7 @@ export default function RootLayout({
       <Head>
         <title>Coupang</title>
       </Head>
-      <body className={clsx(inter.className)}>
+      <body className={clsx('min-h-screen', inter.className)}>
         <StyledComponentsRegistry>
           {children}
 

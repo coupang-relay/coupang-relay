@@ -14,7 +14,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full">
       <div className="items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent h-36 z-10">
           <h1 className="absolute text-2xl font-bold text-center z-10 p-10 w-full text-white grid grid-cols-3">
