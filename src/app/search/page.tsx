@@ -1,4 +1,7 @@
-import { ReviewCard } from '@/components/ReviewCard'
+/* eslint-disable @next/next/no-async-client-component */
+'use client'
+
+import { RelayCard } from '@/components/RelayCard'
 import { ProductListItem } from '@/components/ProductListItem'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
@@ -16,7 +19,7 @@ export default async function Home({ searchParams }: { searchParams: { query: st
       <div className="relative overflow-hidden">
         <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
           {[1, 2, 3].map((id) => (
-            <ReviewCard key={id} id={id} />
+            <RelayCard key={id} id={id} />
           ))}
         </ul>
       </div>

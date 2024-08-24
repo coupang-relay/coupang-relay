@@ -6,10 +6,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-type ReviewCardProps = {
+type RelayCardProps = {
   id: number
 }
-export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
+export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
   return (
     <Link

@@ -3,10 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Button } from '@/components/ui/button'
-import { ArrowLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { type Product } from '../../api/db'
 
@@ -28,7 +25,7 @@ export default function Page({ params }: { params: { id: string } }) {
       ? product.thumbnail_src
       : `https://${product.thumbnail_src}`
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isImageLoading ? 0 : 1 }}
@@ -56,10 +53,11 @@ export default function Page({ params }: { params: { id: string } }) {
         <Category>{product?.category}</Category>
         <ProductName>{product?.name}</ProductName>
         <OriginalPrice>
-          <span className="text-[#212B36]">50%</span> <span className="line-through">24,800원</span>
+          <span className="text-[#212B36]">{product?.discount_rate.toLocaleString()}%</span>{' '}
+          <span className="line-through">{product?.base_price.toLocaleString()}원</span>
         </OriginalPrice>
         <div className="mt-1 flex items-center gap-2">
-          <FinalPrice>12,400원</FinalPrice>
+          <FinalPrice>{product?.price.toLocaleString()}원</FinalPrice>
           <Image
             alt="로켓와우"
             src="/assets/badges/rocket-wow.png"
