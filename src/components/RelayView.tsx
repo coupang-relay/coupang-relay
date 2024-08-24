@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { RelayItem } from '@/app/constants/relays'
 
 const ScrollContainer = styled.div`
   height: 100vh;
@@ -19,7 +20,7 @@ const ScrollItem = styled.div`
   scroll-snap-stop: always;
 `
 
-export const RelayView: React.FC<{ id: string }> = ({ id }) => {
+export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) => {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -93,7 +94,7 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
                 exit={{ opacity: 0 }}
               >
                 <StyledImage
-                  src={`/img/relay/${index + 1}.jpeg`}
+                  src={relayImageSrc}
                   onLoad={() => setImageLoading(false)}
                   alt={`product-${index + 1}`}
                   className="rounded-lg"
@@ -106,19 +107,20 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
                 style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
               >
                 <Image
-                  src={`/img/relay/${index + 1}.jpeg`}
+                  src={relayImageSrc}
                   alt="Product"
                   className="w-[74px] h-[74px] object-cover rounded-sm"
                   width={50}
                   height={50}
                 />
                 <div className="flex flex-col flex-1">
-                  <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
+                  <ProductName>{product.name}</ProductName>
                   <OriginalPrice>
-                    50% <span className="line-through">24,800원</span>
+                    {product.discount_rate.toLocaleString()}{' '}
+                    <span className="line-through">{product.base_price.toLocaleString()}원</span>
                   </OriginalPrice>
                   <div className="mt-1 flex items-center gap-2">
-                    <FinalPrice>12,400원</FinalPrice>
+                    <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
                     <Image
                       alt="로켓와우"
                       src="/assets/badges/rocket-wow.png"
