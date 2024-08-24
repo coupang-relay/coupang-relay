@@ -80,6 +80,10 @@ class ProductDatabase {
     )
     return this.paginate(filteredProducts, options)
   }
+
+  get(id: number): Product | null {
+    return this.products.find((product) => product.id === id) || null
+  }
 }
 
 export default ProductDatabase
