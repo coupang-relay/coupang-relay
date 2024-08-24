@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { RelayItem } from '@/app/constants/relays'
+import { useRouter } from 'next/navigation'
 
 const ScrollContainer = styled.div`
   height: 100vh;
@@ -21,6 +22,8 @@ const ScrollItem = styled.div`
 `
 
 export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) => {
+  const router = useRouter()
+
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -103,8 +106,10 @@ export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) 
                 />
               </motion.div>
               <motion.div
-                className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px]"
+                className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px] cursor-pointer"
                 style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
+                onClick={() => router.push(`/detail/${product.id}`)}
+                whileHover={{ scale: 1.01 }}
               >
                 <Image
                   src={relayImageSrc}
