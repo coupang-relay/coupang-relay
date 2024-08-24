@@ -105,5 +105,5 @@ img {
     'Segoe UI Emoji',
     system-ui,
     -system-ui,
-    sans-serif;
+    sans-serif !important;
 }

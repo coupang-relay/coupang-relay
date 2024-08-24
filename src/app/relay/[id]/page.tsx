@@ -39,7 +39,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
 const Title = styled.span`
   color: #fff;
-  font-family: 'Pretendard';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;

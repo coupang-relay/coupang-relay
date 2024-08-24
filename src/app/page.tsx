@@ -111,7 +111,6 @@ export default function Page() {
 const ServiceName = styled.span`
   color: #000;
   text-align: center;
-  font-family: 'Pretendard';
   font-size: 10px;
   font-style: normal;
   font-weight: 500;
