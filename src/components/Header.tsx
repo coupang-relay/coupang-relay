@@ -33,12 +33,12 @@ export const Header: React.FC<HeaderProps> = ({ defaultQueryValue = '' }) => {
             <img alt="coupang eats" className="h-6" src="/assets/eats-logo.svg" />
           </Link>
           <div className="flex justify-end items-center">
-            <Link href="/new-relay">
+            <Link href="#new-relay">
               <Button className="text-muted-foreground" variant="ghost" size="icon">
                 <SquarePlus size={24} />
               </Button>
             </Link>
-            <Link href="/cart">
+            <Link href="#cart">
               <Button className="text-muted-foreground" variant="ghost" size="icon">
                 <ShoppingCart size={24} />
               </Button>
@@ -56,12 +56,12 @@ export const Header: React.FC<HeaderProps> = ({ defaultQueryValue = '' }) => {
           <img alt="coupang" className="h-5" src="/assets/coupang-logo.svg" />
         </Link>
         <div className="flex justify-end items-center">
-          <Link href="/new-relay">
+          <Link href="#new-relay">
             <Button className="text-muted-foreground" variant="ghost" size="icon">
               <SquarePlus size={24} />
             </Button>
           </Link>
-          <Link href="/cart">
+          <Link href="#cart">
             <Button className="text-muted-foreground" variant="ghost" size="icon">
               <ShoppingCart size={24} />
             </Button>
