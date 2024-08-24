@@ -20,7 +20,7 @@ const Title = styled.h2`
   width: fit-content;
 
   color: #009bff;
-  font-family: 'Pretendard';
+
   font-size: 18px;
   font-weight: 600;
 `

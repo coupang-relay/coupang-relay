@@ -40,7 +40,6 @@ export default function Page({ params }: { params: { id: string } }) {
             quality={100}
           />
         </motion.div>
-
         <motion.div
           className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px]"
           style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
@@ -77,7 +76,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
 const ProductName = styled.span`
   color: #000;
-  font-family: 'Pretendard';
+
   font-size: 14px;
   font-weight: 500;
   line-height: 100%;
@@ -87,14 +86,14 @@ const OriginalPrice = styled.span`
   margin-top: 8px;
 
   color: #a1a1a1;
-  font-family: 'Pretendard';
+
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
 `
 const FinalPrice = styled.span`
   color: #c51905;
-  font-family: 'Pretendard';
+
   font-size: 16px;
   font-weight: 700;
   line-height: 100%;

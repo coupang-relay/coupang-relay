@@ -56,7 +56,7 @@ const Container = styled.li`
 
 const RealtimeMetrics = styled.span`
   color: #fff;
-  font-family: 'Pretendard';
+
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -66,7 +66,7 @@ const Views = styled.h3`
   margin-top: 4px;
 
   color: #fff;
-  font-family: 'Pretendard';
+
   font-size: 14px;
   font-style: normal;
   font-weight: 700;

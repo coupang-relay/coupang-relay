@@ -80,7 +80,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
 const Category = styled.span`
   color: #346aff;
-  font-family: 'Pretendard';
+
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -90,7 +90,7 @@ const ProductName = styled.span`
   margin-top: 16px;
 
   color: #000;
-  font-family: 'Pretendard';
+
   font-size: 18px;
   font-weight: 500;
   line-height: 100%;
@@ -100,14 +100,14 @@ const OriginalPrice = styled.span`
   margin-top: 24px;
 
   color: #768695;
-  font-family: 'Pretendard';
+
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
 `
 const FinalPrice = styled.span`
   color: #c51905;
-  font-family: 'Pretendard';
+
   font-size: 20px;
   font-style: normal;
   font-weight: 700;

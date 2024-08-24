@@ -88,7 +88,7 @@ const Info = styled.div`
 `
 const ProductName = styled.h3`
   color: #000;
-  font-family: 'Pretendard';
+
   font-size: 14px;
   font-weight: 400;
 `
@@ -97,7 +97,7 @@ const OriginalPrice = styled.span`
   margin-top: 12px;
 
   color: #7b858e;
-  font-family: 'Pretendard';
+
   font-size: 12px;
   font-weight: 400;
   text-decoration-line: strikethrough;
@@ -107,7 +107,7 @@ const FinalPrice = styled.span`
   margin-top: 6px;
 
   color: #c51905;
-  font-family: 'Pretendard';
+
   font-size: 16px;
   font-weight: 600;
   line-height: 100%;
@@ -116,7 +116,7 @@ const DeliveryGuarantee = styled.span`
   margin-top: 8px;
 
   color: #178017;
-  font-family: 'Pretendard';
+
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
@@ -125,7 +125,7 @@ const Metadata = styled.span`
   margin-top: 8px;
 
   color: #7b858e;
-  font-family: 'Pretendard';
+
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
@@ -150,7 +150,7 @@ const StarIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 )
 const ReviewCount = styled.span`
   color: #7b858e;
-  font-family: 'Pretendard';
+
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

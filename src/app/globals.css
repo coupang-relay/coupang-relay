@@ -82,3 +82,18 @@ body {
   outline: 1px solid red !important;
   background-color: rgba(255, 0, 0, 0.025);
 } */
+
+.san-francisco {
+  font-family:
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Apple SD Gothic Neo',
+    'Pretendard Variable',
+    'Pretendard',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    system-ui,
+    -system-ui,
+    sans-serif;
+}
