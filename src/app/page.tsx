@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { RelayCard } from '@/components/RelayCard'
 import { RelayTitle } from '@/components/RelayTitle'
@@ -10,7 +11,36 @@ import { useRouter } from 'next/navigation'
 export default function Page() {
   const router = useRouter()
 
+  const [currentSlide, setCurrentSlide] = useState<number>(0)
   const totalSlides = 2
+
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides)
+  //   }, 3000)
+
+  //   return () => clearInterval(timer)
+  // }, [])
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollToNextSlide = () => {
+      if (scrollContainerRef.current) {
+        const nextSlide = (currentSlide + 1) % totalSlides
+        const scrollAmount = nextSlide * scrollContainerRef.current.offsetWidth
+        scrollContainerRef.current.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth',
+        })
+        setCurrentSlide(nextSlide)
+      }
+    }
+
+    const timer = setInterval(scrollToNextSlide, 3000)
+
+    return () => clearInterval(timer)
+  }, [currentSlide])
 
   return (
     <div className="flex flex-col bg-background text-foreground">
@@ -32,7 +62,10 @@ export default function Page() {
         {/* Carousel ad banner */}
         <section className="relative mt-1 mb-4 px-4 flex justify-center">
           <div className="overflow-hidden rounded-lg w-[400px]">
-            <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+            <div
+              ref={scrollContainerRef}
+              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide transition-transform duration-300 ease-in-out"
+            >
               {/* 1 */}
               <div className="flex-shrink-0 w-full snap-center max-w-[400px]">
                 <Image alt="" src="/assets/banner-1-1.png" width={400} height={179} />
