@@ -14,7 +14,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
 
   return (
     <Link
-      href={`/relay/${id + 1}`}
+      href={`/relay/${id}`}
       key={id}
       className="min-w-[180px] max-w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
     >
@@ -27,7 +27,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
         >
           <Image
             alt=""
-            src={`/img/relay/${id + 1}.jpeg`}
+            src={`/img/relay/${id}.jpeg`}
             onLoad={() => setImageLoading(false)}
             className="w-full h-full object-cover absolute top-0 left-0 right-0 bottom-0"
             width={180}
@@ -46,7 +46,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
 
 const Container = styled.li`
   width: 100%;
-  height: 100%;
+  aspect-ratio: 9/16;
   position: relative;
   background: rgba(214, 214, 214, 0.5);
   border-radius: 8px;
