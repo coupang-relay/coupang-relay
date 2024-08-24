@@ -25,7 +25,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen san-francisco">
         <StyledComponentsRegistry>
-          {children}; <Tabbar />
+          {children}
+          <Tabbar />
         </StyledComponentsRegistry>
       </body>
       <Toaster />

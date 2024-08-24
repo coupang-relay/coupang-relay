@@ -1,6 +1,3 @@
-/* eslint-disable @next/next/no-async-client-component */
-'use client'
-
 import { RelayCard } from '@/components/RelayCard'
 import { ProductListItem } from '@/components/ProductListItem'
 import { RelayTitle } from '@/components/RelayTitle'
