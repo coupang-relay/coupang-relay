@@ -1,3 +1,5 @@
+'use client'
+
 import { Product } from '@/app/api/db'
 import styled from 'styled-components'
 
