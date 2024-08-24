@@ -31,7 +31,7 @@ export const Tabbar: React.FC = () => {
   return (
     <>
       {/* bottom padding >= as tabbar height */}
-      {!pathname.startsWith('/relay/') && <div className="flex w-full h-[50px]" />};{' '}
+      {!pathname.startsWith('/relay/') && <div className="flex w-full h-[50px]" />}{' '}
       <nav className="fixed left-0 right-0 bottom-0 flex justify-around items-center p-4 border-t bg-white">
         <Link href="/menu">
           <Menu className="h-6 w-6" />
