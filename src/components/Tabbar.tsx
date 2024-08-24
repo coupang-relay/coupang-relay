@@ -90,7 +90,7 @@ export const Tabbar: React.FC = () => {
         <Link href="/">
           <HomeIcon pathname={pathname} />
         </Link>
-        <Link href="/relay/1">
+        <Link href="/relay/random">
           <RelayIcon pathname={pathname} />
         </Link>
         <Link href="/relay/dashboard">

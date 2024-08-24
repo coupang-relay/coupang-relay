@@ -88,7 +88,7 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {relays.map(({ img: relayImageSrc, product }, index) => {
+      {relays.map(({ img: relayImageSrc, product, id }, index) => {
         const productThumbnailSrc = !product
           ? null
           : product.thumbnail_src.startsWith('https://')
@@ -96,7 +96,7 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
             : `https://${product.thumbnail_src}`
 
         return (
-          <ScrollItem key={index}>
+          <ScrollItem key={id}>
             <div className="relative w-full h-screen bg-black">
               <div className="items-center justify-center">
                 <motion.div

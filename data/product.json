@@ -92501,5 +92501,19 @@
     "stock_count": 0,
     "sold_count": 0,
     "description": ""
+  },
+  {
+    "id": 21318606840,
+    "name": "웅진 맑게우려낸 누룽지차, 500ml, 20개",
+    "coupang_product_id": 21318606840,
+    "category": "음료/누룽지차",
+    "price": 13720,
+    "base_price": 28600,
+    "discount_rate": 52,
+    "thumbnail_src": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1601554944460728-59590ffb-f939-4442-b2d9-328ed9b62ae8.jpg",
+    "created_at": "",
+    "stock_count": 0,
+    "sold_count": 0,
+    "description": "원산지: 상품 상세설명 참조"
   }
 ]

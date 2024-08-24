@@ -12,6 +12,9 @@ export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
 
   const relays = useMemo(() => {
+    if (params.id === 'random') {
+      return RELAYS.sort(() => Math.random() - 0.5)
+    }
     const relayIndex = RELAYS.findIndex((v) => v.id === params.id)
     if (relayIndex === -1) {
       return []
