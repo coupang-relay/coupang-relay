@@ -17,7 +17,7 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
       key={id}
       className="min-w-[180px] max-w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
     >
-      <Container>
+      <Container whileHover={{ y: 5 }}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isImageLoading ? 0 : 1 }}
@@ -43,7 +43,7 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
   )
 }
 
-const Container = styled.li`
+const Container = styled(motion.li)`
   width: 100%;
   aspect-ratio: 9/16;
   position: relative;
