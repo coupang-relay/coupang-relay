@@ -4,15 +4,19 @@ import { RelayCard } from '@/components/RelayCard'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
 import Image from 'next/image'
+import { Search } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import styled from 'styled-components'
 
 export default function Page() {
-  const totalSlides = 2
+  const totalSlides = 1
 
   return (
     <div className="flex flex-col bg-background text-foreground">
-      <Header />{' '}
-      <main className="flex-1 overflow-y-auto">
-        <section className="mb-4">
+      <Header />
+
+      <main className="flex-1 overflow-y-auto w-full">
+        <section className="flex flex-col w-full">
           <RelayTitle />
           <div className="relative overflow-hidden">
             <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
@@ -22,6 +26,25 @@ export default function Page() {
             </ul>
           </div>
         </section>
+
+        {/* search */}
+        <div className="flex justify-center items-center mt-1 px-4">
+          <form
+            // onSubmit={handleSearch}
+            className="text-muted-foreground flex items-center rounded-md px-[18px] w-full max-w-[400px] h-[52px]"
+            style={{ borderRadius: 40, background: '#FAFAFA' }}
+          >
+            <div className="flex items-center">
+              <Search className="w-4 h-4" />
+            </div>
+            <StyledInput
+              placeholder="권은채님, 요아정 어때요?"
+              className="w-full bg-transparent"
+              // value={searchQuery}
+              // onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </form>
+        </div>
 
         <div className="flex mx-auto w-fit">
           <Image
@@ -34,17 +57,12 @@ export default function Page() {
         </div>
 
         {/* Carousel ad banner */}
-        <section className="relative mb-4 px-4">
+        <section className="relative mb-4 px-4 mt-1">
           <div className="overflow-hidden rounded-lg">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-              {[...Array(totalSlides)].map((_, i) => (
-                <div key={i} className="flex-shrink-0 w-full snap-center">
-                  <div className="bg-green-100 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold mb-2">잔뜩 담아도 안 무거워!</h3>
-                    <p className="text-sm">국민템 최대 50% 할인</p>
-                  </div>
-                </div>
-              ))}
+              <div key={0} className="flex-shrink-0 w-full snap-center">
+                <Image alt="" src="/assets/banner-2.png" width={400} height={179} />
+              </div>
             </div>
           </div>
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
@@ -57,3 +75,13 @@ export default function Page() {
     </div>
   )
 }
+
+const StyledInput = styled(Input)`
+  font-family: 'Pretendard';
+
+  &::placeholder {
+    color: #6f6f6f;
+    font-size: 16px;
+    font-weight: 600;
+  }
+`

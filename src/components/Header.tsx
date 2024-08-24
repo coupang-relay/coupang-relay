@@ -68,6 +68,8 @@ export const Header: React.FC<HeaderProps> = ({ defaultQueryValue = '' }) => {
           </Link>
         </div>
       </div>
+
+      {/* search */}
       <div className="flex justify-center items-center px-3 pb-3">
         <form onSubmit={handleSearch} className="text-muted-foreground flex items-center border rounded-md px-2 w-full">
           <div className="flex items-center">
