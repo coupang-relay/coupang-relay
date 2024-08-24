@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          'sm:max-w-screen-sm sm:max-h-[calc(100vh-2rem)] sm:mx-auto sm:border-2 sm:border-gray-200 sm:rounded-2xl sm:overflow-hidden'
+          'sm:max-w-screen-sm sm:max-h-[calc(100vh-2rem)] sm:mx-auto sm:rounded-2xl sm:overflow-hidden sm:shadow-sm'
         )}
       >
         {children}
