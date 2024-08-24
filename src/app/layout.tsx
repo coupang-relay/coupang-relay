@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import clsx from 'clsx'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ko" className="bg-gray-100 sm:m-2">
+      <body
+        className={clsx(
+          inter.className,
+          'sm:max-w-screen-sm sm:max-h-[calc(100vh-2rem)] sm:mx-auto sm:border-2 sm:border-gray-200 sm:rounded-2xl sm:overflow-hidden'
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }
