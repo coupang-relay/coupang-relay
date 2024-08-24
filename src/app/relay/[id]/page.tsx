@@ -33,21 +33,28 @@ export default function Page({ params }: { params: { id: string } }) {
           style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
         >
           <CardContent className="p-[10px]">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <Image
-                  src={`/img/relay/${params.id}.jpeg`}
-                  alt="Product"
-                  className="w-[74px] h-[74px] object-cover rounded-sm"
-                  width={50}
-                  height={50}
-                />
-                <div className="flex flex-col">
-                  <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
-                  <OriginalPrice>
-                    50% <span className="line-through">24,800원</span>
-                  </OriginalPrice>
+            <div className="flex items-center justify-between gap-3">
+              <Image
+                src={`/img/relay/${params.id}.jpeg`}
+                alt="Product"
+                className="w-[74px] h-[74px] object-cover rounded-sm"
+                width={50}
+                height={50}
+              />
+              <div className="flex flex-col flex-1">
+                <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
+                <OriginalPrice>
+                  50% <span className="line-through">24,800원</span>
+                </OriginalPrice>
+                <div className="flex items-center gap-2">
                   <FinalPrice>12,400원</FinalPrice>
+                  <Image
+                    alt="로켓와우"
+                    src="/assets/badges/rocket-wow.png"
+                    className="h-[16px] w-[64px]"
+                    width={126 * 2}
+                    height={32 * 2}
+                  />
                 </div>
               </div>
               <ChevronRight size={24} className="text-gray-400" />
