@@ -3,7 +3,6 @@ import './globals.css'
 import StyledComponentsRegistry from '@/lib/registry'
 import { Toaster } from '@/components/ui/sonner'
 import { Tabbar } from '@/components/Tabbar'
-import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Coupang',
@@ -23,7 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen san-francisco max-w-[400px] w-full mx-auto">
+      <body className="min-h-screen san-francisco">
         <StyledComponentsRegistry>
           {children}
           <Tabbar />

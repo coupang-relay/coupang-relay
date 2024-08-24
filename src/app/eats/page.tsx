@@ -30,19 +30,13 @@ export default function Page() {
         {/* search */}
         <div className="flex justify-center items-center mt-1 px-4">
           <form
-            // onSubmit={handleSearch}
             className="text-muted-foreground flex items-center rounded-md px-[18px] w-full max-w-[400px] h-[52px]"
             style={{ borderRadius: 40, background: '#FAFAFA' }}
           >
             <div className="flex items-center">
               <Search className="w-4 h-4" />
             </div>
-            <StyledInput
-              placeholder="권은채님, 요아정 어때요?"
-              className="w-full bg-transparent"
-              // value={searchQuery}
-              // onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <StyledInput placeholder="권은채님, 요아정 어때요?" className="w-full bg-transparent" />
           </form>
         </div>
 
@@ -57,10 +51,10 @@ export default function Page() {
         </div>
 
         {/* Carousel ad banner */}
-        <section className="relative mb-4 px-4 mt-1">
-          <div className="overflow-hidden rounded-lg">
+        <section className="relative mb-4 px-4 mt-1 flex justify-center">
+          <div className="overflow-hidden rounded-lg max-w-[400px]">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-              <div key={0} className="flex-shrink-0 w-full snap-center">
+              <div key={0} className="flex-shrink-0 w-full snap-center max-w-[400px]">
                 <Image alt="" src="/assets/banner-2.png" width={400} height={179} />
               </div>
             </div>
