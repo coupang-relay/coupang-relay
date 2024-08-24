@@ -28,9 +28,9 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
             alt=""
             src={`/img/relay/${id}.jpeg`}
             onLoad={() => setImageLoading(false)}
-            className="w-full h-full object-cover absolute top-0 left-0 right-0 bottom-0"
+            className="w-full h-[270px] object-cover absolute top-0 left-0 right-0 bottom-0"
             width={180}
-            height={320}
+            height={270}
             quality={90}
           />
         </motion.div>{' '}
