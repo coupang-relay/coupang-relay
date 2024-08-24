@@ -1,14 +1,17 @@
 'use client'
 
+import { useState } from 'react'
 import styled from 'styled-components'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { ArrowLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
+
+  const [isImageLoading, setImageLoading] = useState<boolean>(true)
 
   return (
     <div className="relative w-full h-screen">
@@ -21,46 +24,52 @@ export default function Page({ params }: { params: { id: string } }) {
             <span className="text-white">Product {params.id}</span>
           </h1>
         </div>
-        <Image
-          src={`/img/relay/${params.id}.jpeg`}
-          alt="Placeholder image"
-          className="rounded-lg object-cover"
-          layout="fill"
-        />
 
-        <div
-          className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px]"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isImageLoading ? 0 : 1 }}
+          transition={{ duration: 0.2 }}
+          exit={{ opacity: 0 }}
+        >
+          <Image
+            src={`/img/relay/${params.id}.jpeg`}
+            onLoad={() => setImageLoading(false)}
+            alt="Placeholder image"
+            className="rounded-lg object-cover"
+            layout="fill"
+            quality={100}
+          />
+        </motion.div>
+
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px]"
           style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
         >
-          <CardContent className="p-[10px]">
-            <div className="flex items-center justify-between gap-3">
+          <Image
+            src={`/img/relay/${params.id}.jpeg`}
+            alt="Product"
+            className="w-[74px] h-[74px] object-cover rounded-sm"
+            width={50}
+            height={50}
+          />
+          <div className="flex flex-col flex-1">
+            <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
+            <OriginalPrice>
+              50% <span className="line-through">24,800원</span>
+            </OriginalPrice>
+            <div className="mt-1 flex items-center gap-2">
+              <FinalPrice>12,400원</FinalPrice>
               <Image
-                src={`/img/relay/${params.id}.jpeg`}
-                alt="Product"
-                className="w-[74px] h-[74px] object-cover rounded-sm"
-                width={50}
-                height={50}
+                alt="로켓와우"
+                src="/assets/badges/rocket-wow.png"
+                className="h-[16px] w-[64px]"
+                width={126 * 2}
+                height={32 * 2}
               />
-              <div className="flex flex-col flex-1">
-                <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
-                <OriginalPrice>
-                  50% <span className="line-through">24,800원</span>
-                </OriginalPrice>
-                <div className="mt-1 flex items-center gap-2">
-                  <FinalPrice>12,400원</FinalPrice>
-                  <Image
-                    alt="로켓와우"
-                    src="/assets/badges/rocket-wow.png"
-                    className="h-[16px] w-[64px]"
-                    width={126 * 2}
-                    height={32 * 2}
-                  />
-                </div>
-              </div>
-              <ChevronRight size={24} className="text-gray-400" />
             </div>
-          </CardContent>
-        </div>
+          </div>
+          <ChevronRight size={24} className="text-gray-400" />
+        </motion.div>
       </div>
     </div>
   )
