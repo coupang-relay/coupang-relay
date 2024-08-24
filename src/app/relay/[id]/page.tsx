@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -29,7 +29,13 @@ export default function Page({ params }: { params: { id: string } }) {
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <Image src={`/img/relay/${params.id}.jpeg`} alt="Product" className="w-12 h-12 object-cover rounded-sm w-12 h-12" width={50} height={50} />
+                <Image
+                  src={`/img/relay/${params.id}.jpeg`}
+                  alt="Product"
+                  className="w-12 h-12 object-cover rounded-sm w-12 h-12"
+                  width={50}
+                  height={50}
+                />
                 <div>
                   <h3 className="font-semibold">머지 더 퍼스트 브로우 펜슬 2개</h3>
                   <p className="text-sm text-red-600">12,400원</p>
