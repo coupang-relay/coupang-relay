@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      run: bun run lint
+    prettier:
+      run: bun run format
