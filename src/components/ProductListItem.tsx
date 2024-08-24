@@ -1,5 +1,6 @@
 import { Product } from '@/app/api/db'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const getMockedDeliveryGuarantee = (seed: string): string => {
   const today = new Date()
@@ -34,33 +35,35 @@ export const ProductListItem: React.FC<Product> = (product) => {
     : `https://${product.thumbnail_src}`
 
   return (
-    <Container>
-      <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
+    <Link href={`/detail/${product.id}`} className="w-full">
+      <Container>
+        <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
 
-      <Info>
-        <ProductName>{product.name}</ProductName>
+        <Info>
+          <ProductName>{product.name}</ProductName>
 
-        <OriginalPrice>
-          {product.discount_rate.toLocaleString()}%{' '}
-          <span className="line-through">{product.base_price.toLocaleString()}원</span>
-        </OriginalPrice>
-        <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
+          <OriginalPrice>
+            {product.discount_rate.toLocaleString()}%{' '}
+            <span className="line-through">{product.base_price.toLocaleString()}원</span>
+          </OriginalPrice>
+          <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
 
-        <DeliveryGuarantee>{getMockedDeliveryGuarantee(product.id.toString())}</DeliveryGuarantee>
-        <Metadata>무료배송 ⋅ 무료반품</Metadata>
+          <DeliveryGuarantee>{getMockedDeliveryGuarantee(product.id.toString())}</DeliveryGuarantee>
+          <Metadata>무료배송 ⋅ 무료반품</Metadata>
 
-        <Footer className="flex items-center gap-[0.5]">
-          <div className="flex items-center">
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-            <StarIcon />
-          </div>
-          <ReviewCount>(999+)</ReviewCount>
-        </Footer>
-      </Info>
-    </Container>
+          <Footer className="flex items-center gap-[0.5]">
+            <div className="flex items-center">
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </div>
+            <ReviewCount>(999+)</ReviewCount>
+          </Footer>
+        </Info>
+      </Container>
+    </Link>
   )
 }
 

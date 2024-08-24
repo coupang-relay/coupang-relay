@@ -2,7 +2,7 @@
 
 import styled from 'styled-components'
 import { useState } from 'react'
-import { ReviewCard } from '@/components/ReviewCard'
+import { RelayCard } from '@/components/RelayCard'
 import { ProductListItem } from '@/components/ProductListItem'
 import { useEffect } from 'react'
 import { RelayTitle } from '@/components/RelayTitle'
@@ -43,7 +43,7 @@ export default function Home() {
       <div className="relative overflow-hidden">
         <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
           {[1, 2, 3].map((id) => (
-            <ReviewCard key={id} id={id} />
+            <RelayCard key={id} id={id} />
           ))}
         </ul>
       </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { ReviewCard } from '@/components/ReviewCard'
+import { RelayCard } from '@/components/RelayCard'
 import { Rocket } from 'lucide-react'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
@@ -18,7 +18,7 @@ export default function Page() {
           <div className="relative overflow-hidden">
             <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
               {[1, 2, 3].map((id) => (
-                <ReviewCard key={id} id={id} />
+                <RelayCard key={id} id={id} />
               ))}
             </ul>
           </div>
