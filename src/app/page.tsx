@@ -30,7 +30,7 @@ export default function Page() {
         </section>
 
         {/* Carousel ad banner */}
-        <section className="relative mb-4 px-4 flex justify-center">
+        <section className="relative mt-1 mb-4 px-4 flex justify-center">
           <div className="overflow-hidden rounded-lg w-[400px]">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide">
               {/* 1 */}

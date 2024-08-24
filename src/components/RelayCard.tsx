@@ -34,8 +34,12 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
             quality={90}
           />
         </motion.div>
+
         <div className="flex flex-col absolute left-4 bottom-4">
-          <RealtimeMetrics>74명이 보는 중</RealtimeMetrics>
+          <RealtimeMetrics>
+            {/* FIXME: Fire 추가하기 */}
+            74명이 보는 중
+          </RealtimeMetrics>
           <Views>조회수 2,389</Views>
         </div>
       </Container>
@@ -45,7 +49,7 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
 
 const Container = styled(motion.li)`
   width: 100%;
-  aspect-ratio: 9/16;
+  aspect-ratio: 2/3;
   position: relative;
   background: rgba(214, 214, 214, 0.5);
   border-radius: 8px;
