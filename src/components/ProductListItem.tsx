@@ -27,13 +27,20 @@ const getMockedDeliveryGuarantee = (seed: string): string => {
 }
 
 export const ProductListItem: React.FC<Product> = (product) => {
-  const productThumbnailSrc = product.thumbnail_src.startsWith('https://')
-    ? product.thumbnail_src
-    : `https://${product.thumbnail_src}`
+  const productThumbnailSrc = !product.thumbnail_src.includes('/')
+    ? null
+    : product.thumbnail_src.startsWith('https://')
+      ? product.thumbnail_src
+      : `https://${product.thumbnail_src}`
+
   return (
     <Link href={`/detail/${product.id}`} className="w-full hover:bg-slate-50 transition-colors">
       <Container>
-        <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
+        {!productThumbnailSrc ? (
+          <ProductImagePlaceholder />
+        ) : (
+          <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
+        )}
 
         <Info>
           <ProductName>{product.name}</ProductName>
@@ -75,6 +82,12 @@ const ProductImage = styled.img`
   width: 148px;
   height: 148px;
   object-fit: contain;
+`
+const ProductImagePlaceholder = styled.div`
+  width: 148px;
+  height: 148px;
+  object-fit: contain;
+  background-color: #f5f5f5;
 `
 
 const Info = styled.div`
