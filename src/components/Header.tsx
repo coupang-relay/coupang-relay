@@ -30,12 +30,12 @@ export const Header: React.FC<HeaderProps> = ({ defaultQueryValue = '' }) => {
         <div className="flex justify-end items-center">
           <Link href="/new-relay">
             <Button className="text-muted-foreground" variant="ghost" size="icon">
-              <SquarePlus className="h-4 w-4" />
+              <SquarePlus size={24} />
             </Button>
           </Link>
           <Link href="/cart">
             <Button className="text-muted-foreground" variant="ghost" size="icon">
-              <ShoppingCart className="h-4 w-4" />
+              <ShoppingCart size={24} />
             </Button>
           </Link>
         </div>
