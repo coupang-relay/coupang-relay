@@ -2,9 +2,7 @@ import { ReviewCard } from '@/components/ReviewCard'
 import { ProductListItem } from '@/components/ProductListItem'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
-
-import db, { type Product } from '../api/db'
-import ProductDatabase from '../api/db'
+import ProductDatabase, { type Product } from '../api/db'
 
 export default async function Home({ searchParams }: { searchParams: { query: string } }) {
   const { query } = searchParams
