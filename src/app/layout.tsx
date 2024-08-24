@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import clsx from 'clsx'
 import Head from 'next/head'
+import StyledComponentsRegistry from '@/lib/registry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <Head>
         <title>Coupang</title>
       </Head>
-      <body className={clsx(inter.className)}>{children}</body>
+      <body className={clsx(inter.className)}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   )
 }

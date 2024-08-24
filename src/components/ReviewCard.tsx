@@ -13,7 +13,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
     <Link
       href={`/relay/${id + 1}`}
       key={id}
-      className="w-[180px] min-h-[269px] max-h-[269px] overflow-hidden mx-1 snap-center rounded-[8px]"
+      className="w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
     >
       <Container>
         <Image
