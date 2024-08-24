@@ -17,7 +17,16 @@ export default function Page() {
           <span className="flex items-center justify-center">대시보드</span>
         </h1>
       </div>
-      <Image src="/img/dashboard.png" alt="dashboard" className="rounded-lg object-cover" layout="fill" quality={100} />
+      <Image
+        src="/img/dashboard.png"
+        alt="dashboard"
+        className="flex mx-auto rounded-lg object-cover"
+        // layout="fill"
+        quality={100}
+        width={390 * 2}
+        height={844 * 2}
+        style={{ width: 390, height: 844 }}
+      />
     </>
   )
 }
