@@ -7,14 +7,11 @@ const getMockedDeliveryGuarantee = (seed: string): string => {
   const today = new Date()
   const weekday = today.getDay()
   const weekdays = ['일', '월', '화', '수', '목', '금', '토']
-
   const options: string[] = [
     `오늘(${weekdays[weekday]}) 도착 보장`,
     `내일(${weekdays[(weekday + 1) % 7]}) 도착 보장`,
     `모레(${weekdays[(weekday + 2) % 7]}) 도착 보장`,
-  ]
-
-  // 간단한 해시 함수
+  ] // 간단한 해시 함수
   const hash = (str: string): number => {
     let hash = 0
     for (let i = 0; i < str.length; i++) {
@@ -23,9 +20,7 @@ const getMockedDeliveryGuarantee = (seed: string): string => {
       hash = hash & hash // Convert to 32-bit integer
     }
     return Math.abs(hash)
-  }
-
-  // seed를 기반으로 옵션 선택
+  } // seed를 기반으로 옵션 선택
   const index = hash(seed + weekdays[weekday]) % options.length
   return options[index]
 }
@@ -34,23 +29,18 @@ export const ProductListItem: React.FC<Product> = (product) => {
   const productThumbnailSrc = product.thumbnail_src.startsWith('https://')
     ? product.thumbnail_src
     : `https://${product.thumbnail_src}`
-
   return (
     <Container>
-      <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
-
+      <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />;{' '}
       <Info>
-        <ProductName>{product.name}</ProductName>
-
+        <ProductName>{product.name}</ProductName>;{' '}
         <OriginalPrice>
           {product.discount_rate.toLocaleString()}%{' '}
           <span className="line-through">{product.base_price.toLocaleString()}원</span>
         </OriginalPrice>
-        <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
-
+        <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>;{' '}
         <DeliveryGuarantee>{getMockedDeliveryGuarantee(product.id.toString())}</DeliveryGuarantee>
-        <Metadata>무료배송 ⋅ 무료반품</Metadata>
-
+        <Metadata>무료배송 ⋅ 무료반품</Metadata>;{' '}
         <Footer className="flex items-center gap-[0.5]">
           <div className="flex items-center">
             <StarIcon />
@@ -69,7 +59,6 @@ export const ProductListItem: React.FC<Product> = (product) => {
 const Container = styled.li`
   border-top: 1px solid #dfe3e6;
   padding: 16px;
-
   display: flex;
   align-items: center;
   gap: 8px;
@@ -88,16 +77,13 @@ const Info = styled.div`
 `
 const ProductName = styled.h3`
   color: #000;
-
   font-size: 14px;
   font-weight: 400;
 `
 
 const OriginalPrice = styled.span`
   margin-top: 12px;
-
   color: #7b858e;
-
   font-size: 12px;
   font-weight: 400;
   text-decoration-line: strikethrough;
@@ -105,27 +91,21 @@ const OriginalPrice = styled.span`
 `
 const FinalPrice = styled.span`
   margin-top: 6px;
-
   color: #c51905;
-
   font-size: 16px;
   font-weight: 600;
   line-height: 100%;
 `
 const DeliveryGuarantee = styled.span`
   margin-top: 8px;
-
   color: #178017;
-
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
 `
 const Metadata = styled.span`
   margin-top: 8px;
-
   color: #7b858e;
-
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
@@ -150,7 +130,6 @@ const StarIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 )
 const ReviewCount = styled.span`
   color: #7b858e;
-
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

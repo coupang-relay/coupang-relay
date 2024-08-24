@@ -15,14 +15,12 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({ defaultQueryValue = '' }) => {
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState(defaultQueryValue)
-
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (searchQuery.trim()) {
       router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`)
     }
   }
-
   return (
     <header className="flex flex-col sticky top-0 left-0 right-0 bg-background z-20">
       <div className="grid grid-cols-2 p-2">

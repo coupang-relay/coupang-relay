@@ -7,11 +7,9 @@ import { Header } from '@/components/Header'
 
 export default function Page() {
   const totalSlides = 2
-
   return (
     <div className="flex flex-col bg-background text-foreground">
-      <Header />
-
+      <Header />;{' '}
       <main className="flex-1 overflow-y-auto">
         <section className="mb-4">
           <RelayTitle />

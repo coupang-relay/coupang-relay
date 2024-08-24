@@ -24,9 +24,7 @@ export default function RootLayout({
       </head>
       <body className="san-francisco">
         <StyledComponentsRegistry>
-          {children}
-
-          <Tabbar />
+          {children}; <Tabbar />
         </StyledComponentsRegistry>
       </body>
       <Toaster />
