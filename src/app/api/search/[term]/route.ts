@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import ProductDatabase from '../../api/db'
+import ProductDatabase from '../../../api/db'
 
 export async function GET(request: Request, { params }: { params: { term: string } }) {
   try {

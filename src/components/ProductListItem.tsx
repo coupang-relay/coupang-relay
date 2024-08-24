@@ -1,20 +1,52 @@
-import Image from 'next/image'
+import { Product } from '@/app/api/db'
 import styled from 'styled-components'
 
-export const ProductListItem: React.FC = () => {
+const getMockedDeliveryGuarantee = (seed: string): string => {
+  const today = new Date()
+  const weekday = today.getDay()
+  const weekdays = ['일', '월', '화', '수', '목', '금', '토']
+
+  const options: string[] = [
+    `오늘(${weekdays[weekday]}) 도착 보장`,
+    `내일(${weekdays[(weekday + 1) % 7]}) 도착 보장`,
+    `모레(${weekdays[(weekday + 2) % 7]}) 도착 보장`,
+  ]
+
+  // 간단한 해시 함수
+  const hash = (str: string): number => {
+    let hash = 0
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i)
+      hash = (hash << 5) - hash + char
+      hash = hash & hash // Convert to 32-bit integer
+    }
+    return Math.abs(hash)
+  }
+
+  // seed를 기반으로 옵션 선택
+  const index = hash(seed + weekdays[weekday]) % options.length
+  return options[index]
+}
+
+export const ProductListItem: React.FC<Product> = (product) => {
+  const productThumbnailSrc = product.thumbnail_src.startsWith('https://')
+    ? product.thumbnail_src
+    : `https://${product.thumbnail_src}`
+
   return (
     <Container>
-      <ProductImage alt="" width={512} height={512} src="/assets/product-1.png" />
+      <ProductImage alt="" width={512} height={512} src={productThumbnailSrc} />
 
       <Info>
-        <ProductName>머지 더 퍼스트 브로우 펜슬 2개</ProductName>
+        <ProductName>{product.name}</ProductName>
 
         <OriginalPrice>
-          50% <span className="line-through">24,800원</span>
+          {product.discount_rate.toLocaleString()}%{' '}
+          <span className="line-through">{product.base_price.toLocaleString()}원</span>
         </OriginalPrice>
-        <FinalPrice>12,400원</FinalPrice>
+        <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
 
-        <DeliveryTime>내일(토) 도착 보장</DeliveryTime>
+        <DeliveryGuarantee>{getMockedDeliveryGuarantee(product.id.toString())}</DeliveryGuarantee>
         <Metadata>무료배송 ⋅ 무료반품</Metadata>
 
         <Footer className="flex items-center gap-[0.5]">
@@ -41,7 +73,7 @@ const Container = styled.li`
   gap: 8px;
 `
 
-const ProductImage = styled(Image)`
+const ProductImage = styled.img`
   width: 148px;
   height: 148px;
   object-fit: contain;
@@ -78,7 +110,7 @@ const FinalPrice = styled.span`
   font-weight: 600;
   line-height: 100%;
 `
-const DeliveryTime = styled.span`
+const DeliveryGuarantee = styled.span`
   margin-top: 8px;
 
   color: #178017;

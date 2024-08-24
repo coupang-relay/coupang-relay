@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises'
 import path from 'path'
 
-interface Product {
+export type Product = {
   id: number
   name: string
   coupang_product_id: number
@@ -16,12 +16,12 @@ interface Product {
   description: string | null
 }
 
-interface PaginationOptions {
+export type ProductPaginationOptions = {
   page: number
   size: number
 }
 
-interface PaginatedResult {
+export type ProductPaginatedResult = {
   items: Product[]
   totalPages: number
   currentPage: number
@@ -52,7 +52,7 @@ class ProductDatabase {
     }
   }
 
-  private paginate(items: Product[], options: PaginationOptions): PaginatedResult {
+  private paginate(items: Product[], options: ProductPaginationOptions): ProductPaginatedResult {
     const { page, size } = options
     const totalItems = items.length
     const totalPages = Math.ceil(totalItems / size)
@@ -67,11 +67,11 @@ class ProductDatabase {
     }
   }
 
-  list(options: PaginationOptions): PaginatedResult {
+  list(options: ProductPaginationOptions): ProductPaginatedResult {
     return this.paginate(this.products, options)
   }
 
-  search(searchTerm: string, options: PaginationOptions): PaginatedResult {
+  search(searchTerm: string, options: ProductPaginationOptions): ProductPaginatedResult {
     const lowerSearchTerm = searchTerm.toLowerCase()
     const filteredProducts = this.products.filter(
       (product) =>
