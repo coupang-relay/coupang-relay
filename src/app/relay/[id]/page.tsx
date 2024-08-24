@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <span className="text-white">쿠팡 릴레이</span>
         </h1>
       </div>
-      <RelayView {...RELAYS[0]} />
+      <RelayView relays={RELAYS} />
     </>
   )
 }

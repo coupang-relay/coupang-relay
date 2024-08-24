@@ -21,7 +21,7 @@ const ScrollItem = styled.div`
   scroll-snap-stop: always;
 `
 
-export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) => {
+export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
   const router = useRouter()
 
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
@@ -86,7 +86,7 @@ export const RelayView: React.FC<RelayItem> = ({ img: relayImageSrc, product }) 
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {Array.from({ length: 10 }).map((_, index) => (
+      {relays.map(({ img: relayImageSrc, product }, index) => (
         <ScrollItem key={index}>
           <div className="relative w-full h-screen bg-black">
             <div className="items-center justify-center">
