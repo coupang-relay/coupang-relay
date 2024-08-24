@@ -8,16 +8,22 @@ import { ProductListItem } from '@/components/ProductListItem'
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <Title>쿠팡 릴레이</Title>
-      <div className="flex items-center">
-        <ReviewCard />
-        <ReviewCard />
-        <ReviewCard />
-      </div>
+      <section>
+        <Title>쿠팡 릴레이</Title>
+        <div className="flex items-center">
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+        </div>
+      </section>
 
-      <ProductListItem />
-      <ProductListItem />
-      <ProductListItem />
+      <section>
+        <ul className="flex flex-col">
+          <ProductListItem />
+          <ProductListItem />
+          <ProductListItem />
+        </ul>
+      </section>
     </main>
   )
 }
