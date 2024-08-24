@@ -1,66 +1,22 @@
 'use client'
 
-import { Logo } from '@/components/logo'
 import { ReviewCard } from '@/components/ReviewCard'
-import { Button } from '@/components/ui/button'
-import { Rocket, Search, ShoppingCart, SquarePlus } from 'lucide-react'
-import Link from 'next/link'
-import { Input } from '@/components/ui/input'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { Rocket } from 'lucide-react'
+import { RelayTitle } from '@/components/RelayTitle'
+import { Header } from '@/components/Header'
 
 export default function Page() {
   const totalSlides = 2
-  const router = useRouter()
-  const [searchQuery, setSearchQuery] = useState('')
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (searchQuery.trim()) {
-      router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`)
-    }
-  }
 
   return (
     <div className="flex flex-col bg-background text-foreground">
-      <div className="flex flex-col sticky top-0 left-0 right-0 bg-background z-20">
-        <div className="grid grid-cols-2 p-2">
-          <Logo className="h-10 p-2 pt-4 mr-auto" />
-          <div className="flex justify-end items-center">
-            <Link href="/new-relay">
-              <Button className="text-muted-foreground" variant="ghost" size="icon">
-                <SquarePlus className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/cart">
-              <Button className="text-muted-foreground" variant="ghost" size="icon">
-                <ShoppingCart className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-        <div className="flex justify-center items-center px-3 pb-3">
-          <form
-            onSubmit={handleSearch}
-            className="text-muted-foreground flex items-center border rounded-md px-2 w-full"
-          >
-            <div className="flex items-center">
-              <Search className="w-4 h-4" />
-            </div>
-            <Input
-              placeholder="검색어를 입력해주세요"
-              className="w-full"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </form>
-        </div>
-      </div>
+      <Header />
+
       <main className="flex-1 overflow-y-auto">
         <section className="mb-4">
-          <h2 className="text-xl font-bold px-4 mb-2">100% 만족하는 화장품</h2>
+          <RelayTitle />
           <div className="relative overflow-hidden">
-            <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-2">
+            <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
               {[1, 2, 3].map((id) => (
                 <ReviewCard key={id} id={id} />
               ))}
