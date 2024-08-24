@@ -85,7 +85,7 @@ export default function Page() {
         </section>
 
         {/* Service icons */}
-        <section className="grid grid-cols-4 gap-2 px-4 mb-4 max-w-[400px] w-full mx-auto">
+        <section className="grid grid-cols-4 gap-2 px-4 mb-12 max-w-[400px] w-full mx-auto">
           {['로켓배송', '로켓프레시', '로켓직구', '쿠팡이츠'].map((serviceName, i) => (
             <div
               key={i}
