@@ -1,6 +1,6 @@
 'use client'
 
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import { useMemo } from 'react'
 import { RELAYS } from '@/app/constants/relays'
 import RelayView from '@/components/RelayView'
