@@ -1,13 +1,28 @@
 import { type Product } from '../api/db'
 
-export type RelayItem = {
-  id: string
-  img: string
-  product: Product
-}
+export type RelayItem =
+  | {
+      type: 'product'
+      id: string
+      img: string
+      product: Product
+    }
+  | {
+      type: 'eats'
+      id: string
+      img: string
+      product: {
+        id: '#'
+        name: string
+        desc: string
+        price: number
+        thumbnail_src: string
+      }
+    }
 
 export const RELAYS: RelayItem[] = [
   {
+    type: 'product',
     id: '1',
     img: '/img/relay/1.jpg',
     product: {
@@ -27,6 +42,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '2',
     img: '/img/relay/2.jpg',
     product: {
@@ -46,6 +62,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '3',
     img: '/img/relay/3.jpg',
     product: {
@@ -65,6 +82,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '4',
     img: '/img/relay/4.jpg',
     product: {
@@ -84,6 +102,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '5',
     img: '/img/relay/5.jpg',
     product: {
@@ -103,6 +122,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '6',
     img: '/img/relay/6.jpg',
     product: {
@@ -122,6 +142,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '7',
     img: '/img/relay/7.jpg',
     product: {
@@ -142,6 +163,7 @@ export const RELAYS: RelayItem[] = [
     },
   },
   {
+    type: 'product',
     id: '8',
     img: '/img/relay/8.jpg',
     product: {
@@ -158,6 +180,54 @@ export const RELAYS: RelayItem[] = [
       stock_count: 0,
       sold_count: 0,
       description: '원산지: 상품 상세설명 참조',
+    },
+  },
+  {
+    type: 'eats',
+    id: 'eats-1',
+    img: '/img/relay/eats-1.jpg',
+    product: {
+      id: '#',
+      name: 'BHC 치킨 커리퀸 닭다리',
+      desc: '23분 만에 로켓 배달!',
+      price: 28000,
+      thumbnail_src: 'https://www.chickenrank.com/storage/chickens/WwvXsLZTYl7F0zHPxO3bs4G4xlwpV5aaLAh5hUzi.png',
+    },
+  },
+  {
+    type: 'eats',
+    id: 'eats-2',
+    img: '/img/relay/eats-2.jpg',
+    product: {
+      id: '#',
+      name: '배스킨라빈스 패밀리 아이스크림 [5가지 맛]',
+      desc: '48분 만에 로켓 배달!',
+      price: 24000,
+      thumbnail_src: 'https://sitem.ssgcdn.com/86/69/80/item/1000556806986_i1_750.jpg',
+    },
+  },
+  {
+    type: 'eats',
+    id: 'eats-3',
+    img: '/img/relay/eats-3.jpg',
+    product: {
+      id: '#',
+      name: '동대문엽기떡볶이 엽기메뉴',
+      desc: '31분 만에 로켓 배달!',
+      price: 14000,
+      thumbnail_src: 'https://www.yupdduk.com/bod/config/menu/%EC%97%BD%EA%B8%B0%EB%A9%94%EB%89%B4_6_1_1_1_1_1.png',
+    },
+  },
+  {
+    type: 'eats',
+    id: 'eats-4',
+    img: '/img/relay/eats-4.jpg',
+    product: {
+      id: '#',
+      name: '카페 생크림와플 (초코시럽)',
+      desc: '12분 만에 로켓 배달!',
+      price: 6100,
+      thumbnail_src: 'https://ynpoint.com/web/product/big/202302/18f6e97ea5a4d2b061ac833f2174be25.jpg',
     },
   },
 ]

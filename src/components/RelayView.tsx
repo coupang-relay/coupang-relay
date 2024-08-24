@@ -88,7 +88,8 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {relays.map(({ img: relayImageSrc, product, id }, index) => {
+      {relays.map(({ img: relayImageSrc, id, ...params }, index) => {
+        const { product } = params
         const productThumbnailSrc = !product
           ? null
           : product.thumbnail_src.startsWith('https://')
@@ -137,20 +138,26 @@ export const RelayView: React.FC<{ relays: RelayItem[] }> = ({ relays }) => {
                     />
                     <div className="flex flex-col flex-1">
                       <ProductName className="line-clamp-2">{product.name}</ProductName>
-                      <OriginalPrice>
-                        {product.discount_rate.toLocaleString()}
-                        {'% '}
-                        <span className="line-through">{product.base_price.toLocaleString()}원</span>
-                      </OriginalPrice>
+                      {params.type === 'product' ? (
+                        <OriginalPrice>
+                          {params.product.discount_rate.toLocaleString()}
+                          {'% '}
+                          <span className="line-through">{params.product.base_price.toLocaleString()}원</span>
+                        </OriginalPrice>
+                      ) : (
+                        <OriginalPrice>{params.product.desc}</OriginalPrice>
+                      )}
                       <div className="mt-1 flex items-center gap-2">
                         <FinalPrice>{product.price.toLocaleString()}원</FinalPrice>
-                        <Image
-                          alt="로켓와우"
-                          src="/assets/badges/rocket-wow.png"
-                          className="h-[16px] w-[64px]"
-                          width={126 * 2}
-                          height={32 * 2}
-                        />
+                        {params.type === 'product' && (
+                          <Image
+                            alt="로켓와우"
+                            src="/assets/badges/rocket-wow.png"
+                            className="h-[16px] w-[64px]"
+                            width={126 * 2}
+                            height={32 * 2}
+                          />
+                        )}
                       </div>
                     </div>
                     <ChevronRight size={24} className="text-gray-400" />
