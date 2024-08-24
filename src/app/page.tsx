@@ -2,10 +2,6 @@ import { Home, Menu, Rocket, Search, ShoppingCart, User } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const randomImage = () => {
-  return `https://cataas.com/cat?${Math.random()}`
-}
-
 export default function Page() {
   const totalSlides = 7
 
@@ -26,11 +22,11 @@ export default function Page() {
           <h2 className="text-xl font-bold px-4 mb-2">100% 만족하는 화장품</h2>
           <div className="relative overflow-hidden">
             <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="flex-shrink-0 w-[180px] mx-2 snap-center">
+              {[...Array(3)].map((_, i) => (
+                <Link href={`/relay/${i + 1}`} key={i} className="flex-shrink-0 w-[180px] mx-2 snap-center">
                   <div className="p-0 h-[320px] relative">
                     <Image
-                      src={randomImage()}
+                      src={`/img/relay/${i + 1}.jpeg`}
                       alt="cat"
                       className="w-full h-full object-cover"
                       width={180}
@@ -41,7 +37,7 @@ export default function Page() {
                       <p className="text-white text-xs">₩2,389</p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
