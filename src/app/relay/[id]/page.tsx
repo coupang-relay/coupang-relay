@@ -17,9 +17,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <span className="text-white">쿠팡 릴레이</span>
         </h1>
       </div>
-      {Array.from({ length: 10 }).map((_, index) => (
-        <RelayView key={index} id={String(index + 1)} />
-      ))}
+      <RelayView id={params.id} />
     </>
   )
 }
