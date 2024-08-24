@@ -4,6 +4,7 @@ import './globals.css'
 import clsx from 'clsx'
 import Head from 'next/head'
 import StyledComponentsRegistry from '@/lib/registry'
+import { Toaster } from '@/components/ui/sonner'
 import { Tabbar } from '@/components/Tabbar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Tabbar />
         </StyledComponentsRegistry>
       </body>
+      <Toaster />
     </html>
   )
 }
