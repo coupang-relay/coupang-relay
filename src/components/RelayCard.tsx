@@ -11,7 +11,6 @@ type RelayCardProps = {
 }
 export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
-
   return (
     <Link
       href={`/relay/${id}`}
@@ -35,7 +34,7 @@ export const RelayCard: React.FC<RelayCardProps> = ({ id }) => {
             quality={90}
           />
         </motion.div>
-
+        ;{' '}
         <div className="flex flex-col absolute left-4 bottom-4">
           <RealtimeMetrics>74명이 보는 중</RealtimeMetrics>
           <Views>조회수 2,389</Views>
@@ -56,7 +55,6 @@ const Container = styled.li`
 
 const RealtimeMetrics = styled.span`
   color: #fff;
-  font-family: 'Pretendard';
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -64,9 +62,7 @@ const RealtimeMetrics = styled.span`
 `
 const Views = styled.h3`
   margin-top: 4px;
-
   color: #fff;
-  font-family: 'Pretendard';
   font-size: 14px;
   font-style: normal;
   font-weight: 700;

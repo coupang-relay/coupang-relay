@@ -1,45 +1,21 @@
+/* eslint-disable @next/next/no-async-client-component */
 'use client'
 
-import styled from 'styled-components'
-import { useState } from 'react'
 import { RelayCard } from '@/components/RelayCard'
 import { ProductListItem } from '@/components/ProductListItem'
-import { useEffect } from 'react'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
+import ProductDatabase, { type Product } from '../api/db'
 
-import { useSearchParams } from 'next/navigation'
-
-import { type Product } from '../api/db'
-
-export default function Home() {
-  const params = useSearchParams()
-  const [products, setProducts] = useState<Product[]>([])
-  const [defaultQueryValue, setDefaultQueryValue] = useState<string>('')
-
-  useEffect(() => {
-    const query = params.get('query')
-    if (!query) {
-      return
-    }
-    setDefaultQueryValue(query)
-
-    const fetchData = async () => {
-      const data = await fetch(`/api/search/${query}`)
-      const response = await data.json()
-      console.log(response)
-      setProducts(response.items)
-    }
-
-    fetchData()
-  }, [params])
-
+export default async function Home({ searchParams }: { searchParams: { query: string } }) {
+  const { query } = searchParams
+  const db = await ProductDatabase.getInstance()
+  const data = db.search(query, { page: 1, size: 30 })
+  const products = data.items
   return (
     <main className="flex flex-col">
-      <Header defaultQueryValue={defaultQueryValue} />
-
+      <Header defaultQueryValue={query} />
       <RelayTitle />
-
       <div className="relative overflow-hidden">
         <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide p-3">
           {[1, 2, 3].map((id) => (
@@ -49,7 +25,7 @@ export default function Home() {
       </div>
       <section>
         <ul className="flex flex-col">
-          {products.map((product) => (
+          {products.map((product: Product) => (
             <ProductListItem key={product.id} {...product} />
           ))}
         </ul>

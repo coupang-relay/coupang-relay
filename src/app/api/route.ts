@@ -9,7 +9,6 @@ export async function GET(request: Request) {
     const page = url.searchParams.get('page')
     const size = url.searchParams.get('size')
     result = db.list({ page: page ? parseInt(page) : 1, size: size ? parseInt(size) : 30 })
-
     return NextResponse.json(result)
   } catch (error) {
     console.error('Error in GET request:', error)

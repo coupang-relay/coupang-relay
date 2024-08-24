@@ -10,9 +10,7 @@ import { motion } from 'framer-motion'
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter()
-
   const [isImageLoading, setImageLoading] = useState<boolean>(true)
-
   return (
     <div className="relative w-full">
       <div className="items-center justify-center">
@@ -24,7 +22,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <span className="text-white">Product {params.id}</span>
           </h1>
         </div>
-
+        ;{' '}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isImageLoading ? 0 : 1 }}
@@ -40,7 +38,6 @@ export default function Page({ params }: { params: { id: string } }) {
             quality={100}
           />
         </motion.div>
-
         <motion.div
           className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px] flex items-center justify-between gap-3 p-[10px]"
           style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
@@ -77,7 +74,6 @@ export default function Page({ params }: { params: { id: string } }) {
 
 const ProductName = styled.span`
   color: #000;
-  font-family: 'Pretendard';
   font-size: 14px;
   font-weight: 500;
   line-height: 100%;
@@ -85,16 +81,13 @@ const ProductName = styled.span`
 
 const OriginalPrice = styled.span`
   margin-top: 8px;
-
   color: #a1a1a1;
-  font-family: 'Pretendard';
   font-size: 12px;
   font-weight: 400;
   line-height: 100%;
 `
 const FinalPrice = styled.span`
   color: #c51905;
-  font-family: 'Pretendard';
   font-size: 16px;
   font-weight: 700;
   line-height: 100%;

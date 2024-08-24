@@ -30,9 +30,7 @@ export type ProductPaginatedResult = {
 class ProductDatabase {
   private static instance: ProductDatabase | null = null
   private products: Product[] = []
-
   private constructor() {}
-
   static async getInstance(): Promise<ProductDatabase> {
     if (!ProductDatabase.instance) {
       ProductDatabase.instance = new ProductDatabase()
@@ -40,7 +38,6 @@ class ProductDatabase {
     }
     return ProductDatabase.instance
   }
-
   private async initialize(): Promise<void> {
     try {
       const filePath = path.join(process.cwd(), 'data', 'product.json')
@@ -51,7 +48,6 @@ class ProductDatabase {
       throw error
     }
   }
-
   private paginate(items: Product[], options: ProductPaginationOptions): ProductPaginatedResult {
     const { page, size } = options
     const totalItems = items.length
@@ -59,18 +55,15 @@ class ProductDatabase {
     const currentPage = Math.max(1, Math.min(page, totalPages))
     const startIndex = (currentPage - 1) * size
     const endIndex = Math.min(startIndex + size, totalItems)
-
     return {
       items: items.slice(startIndex, endIndex),
       totalPages,
       currentPage,
     }
   }
-
   list(options: ProductPaginationOptions): ProductPaginatedResult {
     return this.paginate(this.products, options)
   }
-
   search(searchTerm: string, options: ProductPaginationOptions): ProductPaginatedResult {
     const lowerSearchTerm = searchTerm.toLowerCase()
     const filteredProducts = this.products.filter(
@@ -80,7 +73,6 @@ class ProductDatabase {
     )
     return this.paginate(filteredProducts, options)
   }
-
   get(id: number): Product | null {
     return this.products.find((product) => product.id === id) || null
   }
