@@ -28,8 +28,8 @@ export default function Page({ params }: { params: { id: string } }) {
           layout="fill"
         />
 
-        <Card
-          className="absolute bottom-0 left-0 right-0 mx-4 mb-20"
+        <div
+          className="absolute bottom-0 left-0 right-0 ml-4 mb-20 rounded-[8px] mr-[12px]"
           style={{ background: `linear-gradient(0deg, #FFF 0%, #E4E4E4 100%)` }}
         >
           <CardContent className="p-[10px]">
@@ -46,7 +46,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <OriginalPrice>
                   50% <span className="line-through">24,800원</span>
                 </OriginalPrice>
-                <div className="flex items-center gap-2">
+                <div className="mt-1 flex items-center gap-2">
                   <FinalPrice>12,400원</FinalPrice>
                   <Image
                     alt="로켓와우"
@@ -60,7 +60,7 @@ export default function Page({ params }: { params: { id: string } }) {
               <ChevronRight size={24} className="text-gray-400" />
             </div>
           </CardContent>
-        </Card>
+        </div>
       </div>
     </div>
   )
@@ -71,17 +71,22 @@ const ProductName = styled.span`
   font-family: 'Pretendard';
   font-size: 14px;
   font-weight: 500;
+  line-height: 100%;
 `
 
 const OriginalPrice = styled.span`
+  margin-top: 8px;
+
   color: #a1a1a1;
   font-family: 'Pretendard';
   font-size: 12px;
   font-weight: 400;
+  line-height: 100%;
 `
 const FinalPrice = styled.span`
   color: #c51905;
   font-family: 'Pretendard';
   font-size: 16px;
   font-weight: 700;
+  line-height: 100%;
 `
