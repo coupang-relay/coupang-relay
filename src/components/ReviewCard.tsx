@@ -33,8 +33,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
             height={320}
             quality={90}
           />
-        </motion.div>
-        ;{' '}
+        </motion.div>{' '}
         <div className="flex flex-col absolute left-4 bottom-4">
           <RealtimeMetrics>74명이 보는 중</RealtimeMetrics>
           <Views>조회수 2,389</Views>
