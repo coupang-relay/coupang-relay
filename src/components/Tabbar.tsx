@@ -42,7 +42,7 @@ export const Tabbar: React.FC = () => {
         <Link href="/cart">
           <ShoppingCart className="h-6 w-6" />
         </Link>
-        <Link href="/profile">
+        <Link href="/relay/dashboard">
           <User className="h-6 w-6" />
         </Link>
       </nav>
