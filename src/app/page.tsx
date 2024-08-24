@@ -20,9 +20,9 @@ export default async function Page() {
         {/* Reels section */}
         <section className="mb-4">
           <h2 className="text-xl font-bold px-4 mb-2">100% 만족하는 화장품</h2>
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden ml-3">
             <ul className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
-              {[...Array(3)].map((_, i) => (
+              {[...Array(8)].map((_, i) => (
                 <ReviewCard key={i} id={i} />
               ))}
             </ul>

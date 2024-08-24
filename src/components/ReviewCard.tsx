@@ -2,23 +2,38 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 type ReviewCardProps = {
   id: number
 }
 export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
+  const [isImageLoading, setImageLoading] = useState<boolean>(true)
+
   return (
-    <Link href={`/relay/${id + 1}`} key={id} className="flex-shrink-0 w-[180px] mx-2 snap-center">
+    <Link
+      href={`/relay/${id + 1}`}
+      key={id}
+      className="min-w-[180px] max-w-[180px] min-h-[270px] max-h-[270px] overflow-hidden mx-1 snap-center rounded-[8px]"
+    >
       <Container>
-        <Image
-          src={`/img/relay/${id + 1}.jpeg`}
-          alt="cat"
-          className="w-full h-full object-cover"
-          width={180}
-          height={320}
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isImageLoading ? 0 : 1 }}
+          transition={{ duration: 0.2 }}
+          exit={{ opacity: 0 }}
+        >
+          <Image
+            alt=""
+            src={`/img/relay/${id + 1}.jpeg`}
+            onLoad={() => setImageLoading(false)}
+            className="w-full h-full object-cover absolute top-0 left-0 right-0 bottom-0"
+            width={180}
+            height={320}
+          />
+        </motion.div>
 
         <div className="flex flex-col absolute left-4 bottom-4">
           <RealtimeMetrics>74명이 보는 중</RealtimeMetrics>
@@ -31,7 +46,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ id }) => {
 
 const Container = styled.li`
   width: 100%;
-  height: 269px;
+  height: 100%;
   position: relative;
   background: rgba(214, 214, 214, 0.5);
   border-radius: 8px;
