@@ -7,6 +7,10 @@ body {
   min-height: 100vh;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
