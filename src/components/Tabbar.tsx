@@ -16,9 +16,6 @@ export const Tabbar: React.FC = () => {
         <Link href="/menu">
           <Menu className="h-6 w-6" />
         </Link>
-        <Link href="/search">
-          <Search className="h-6 w-6" />
-        </Link>
         <Link href="/">
           <Home className="h-6 w-6" />
         </Link>
