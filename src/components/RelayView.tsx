@@ -84,7 +84,7 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
     >
       {Array.from({ length: 10 }).map((_, index) => (
         <ScrollItem key={index}>
-          <div className="relative w-full h-screen">
+          <div className="relative w-full h-screen bg-black">
             <div className="items-center justify-center">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -92,11 +92,11 @@ export const RelayView: React.FC<{ id: string }> = ({ id }) => {
                 transition={{ duration: 0.2 }}
                 exit={{ opacity: 0 }}
               >
-                <Image
+                <StyledImage
                   src={`/img/relay/${index + 1}.jpeg`}
                   onLoad={() => setImageLoading(false)}
                   alt={`product-${index + 1}`}
-                  className="rounded-lg object-cover"
+                  className="rounded-lg"
                   layout="fill"
                   quality={100}
                 />
@@ -161,3 +161,13 @@ const FinalPrice = styled.span`
 `
 
 export default RelayView
+
+const StyledImage = styled(Image)`
+  /* object-fit: contain;
+
+  @media (max-width: 500px) {
+    object-fit: cover;
+  } */
+
+  object-fit: cover;
+`
