@@ -1,6 +1,7 @@
 'use client'
 
 import { RelayCard } from '@/components/RelayCard'
+import { RelayCardMock } from '@/components/RelayCardMock'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
 import Image from 'next/image'
@@ -23,6 +24,11 @@ export default function Page() {
               {['eats-1', 'eats-2', 'eats-3', 'eats-4'].map((id) => (
                 <RelayCard key={id} id={id} />
               ))}
+              <RelayCardMock />
+              <RelayCardMock />
+              <RelayCardMock />
+              <RelayCardMock />
+              <RelayCardMock />
             </ul>
           </div>
         </section>
