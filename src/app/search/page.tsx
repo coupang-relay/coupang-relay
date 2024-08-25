@@ -9,6 +9,7 @@ export default async function Home({ searchParams }: { searchParams: { query: st
   const db = await ProductDatabase.getInstance()
   const data = db.search(query, { page: 1, size: 30 })
   const products = data.items
+
   return (
     <main className="flex flex-col">
       <Header defaultQueryValue={query} />

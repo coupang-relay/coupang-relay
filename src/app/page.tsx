@@ -7,6 +7,55 @@ import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { ProductListItem } from '@/components/ProductListItem'
+
+const ITEMS = [
+  {
+    id: 1800,
+    name: '농심 카프리썬 오렌지, 200ml, 20개',
+    coupang_product_id: 1580008099,
+    category: '생수/음료',
+    price: 7250,
+    base_price: 8420,
+    discount_rate: 13,
+    thumbnail_src:
+      'thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/70939530506095-c28febfa-b32a-4b43-9fef-a46e28477ee1.jpg',
+    created_at: '2020-08-12T19:17:32',
+    stock_count: 1000,
+    sold_count: 0,
+    description: null,
+  },
+  {
+    id: 1888,
+    name: '농심 카프리썬 오렌지망고, 200ml, 20개',
+    coupang_product_id: 1580094573,
+    category: '생수/음료',
+    price: 7390,
+    base_price: 8570,
+    discount_rate: 13,
+    thumbnail_src:
+      'thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/70483370223326-15ffc3cc-4d6d-42ec-be70-b05aa914b51f.jpg',
+    created_at: '2020-08-12T19:17:32',
+    stock_count: 1000,
+    sold_count: 0,
+    description: null,
+  },
+  {
+    id: 1701,
+    name: '웅진 하늘보리, 500ml, 20개',
+    coupang_product_id: 126294792,
+    category: '생수/음료',
+    price: 12200,
+    base_price: 26000,
+    discount_rate: 53,
+    thumbnail_src:
+      'thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/product/image/vendoritem/2018/11/22/3904133275/bbf5838a-f88c-4b39-9ffc-d1c64d79ec97.jpg',
+    created_at: '2020-08-12T19:17:32',
+    stock_count: 1000,
+    sold_count: 0,
+    description: null,
+  },
+]
 
 export default function Page() {
   const router = useRouter()
@@ -103,6 +152,12 @@ export default function Page() {
             </div>
           ))}
         </section>
+
+        <ul>
+          {ITEMS.map((item) => (
+            <ProductListItem key={item.id} {...item} />
+          ))}
+        </ul>
       </main>
     </div>
   )
