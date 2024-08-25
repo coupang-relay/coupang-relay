@@ -153,7 +153,7 @@ export default function Page() {
           ))}
         </section>
 
-        <ul>
+        <ul className="w-full flex flex-col">
           {ITEMS.map((item) => (
             <ProductListItem key={item.id} {...item} />
           ))}

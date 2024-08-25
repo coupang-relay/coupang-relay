@@ -3,6 +3,7 @@ import { ProductListItem } from '@/components/ProductListItem'
 import { RelayTitle } from '@/components/RelayTitle'
 import { Header } from '@/components/Header'
 import ProductDatabase, { type Product } from '../api/db'
+import Image from 'next/image'
 
 export default async function Home({ searchParams }: { searchParams: { query: string } }) {
   const { query } = searchParams
@@ -22,11 +23,16 @@ export default async function Home({ searchParams }: { searchParams: { query: st
         </ul>
       </div>
       <section>
-        <ul className="flex flex-col">
-          {products.map((product: Product) => (
-            <ProductListItem key={product.id} {...product} />
-          ))}
-        </ul>
+        {products.length > 0 && (
+          <ul className="flex flex-col">
+            {products.map((product: Product) => (
+              <ProductListItem key={product.id} {...product} />
+            ))}
+          </ul>
+        )}
+        {products.length === 0 && (
+          <Image className="mx-auto mt-10 mb-[100px]" src="/assets/no-result.png" alt="" width={300} height={300} />
+        )}
       </section>
     </main>
   )
